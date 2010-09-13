@@ -1,0 +1,396 @@
+%PDF-1.4
+%‚„œ”
+
+1 0 obj
+   << 
+      /Title ()
+      /Author ()
+      /Subject ()
+      /Keywords ()
+      /Creator (FreeHEP Graphics2D Driver)
+      /Producer (org.freehep.graphicsio.c.q Revision: 1.6 )
+      /CreationDate (D:20090911180700-04'00')
+      /ModDate (D:20090911180700-04'00')
+      /Trapped /False
+   >>
+endobj
+
+2 0 obj
+   << 
+      /Type /Catalog
+      /Pages 3 0 R
+      /Outlines 4 0 R
+      /PageMode /UseOutlines
+      /ViewerPreferences 5 0 R
+      /OpenAction [6 0 R /Fit]
+   >>
+endobj
+
+5 0 obj
+   << 
+      /FitWindow true
+      /CenterWindow false
+   >>
+endobj
+
+6 0 obj
+   << 
+      /Parent 3 0 R
+      /Type /Page
+      /Contents 7 0 R
+   >>
+endobj
+
+7 0 obj
+   << 
+      /Length 8 0 R
+   >>
+stream
+.23029 0.0000 0.0000 -.23029 20.000 619.46 cm
+q
+0.0000 0.0000 m
+2410.0 0.0000 l
+2410.0 1945.0 l
+0.0000 1945.0 l
+h
+W
+n
+q
+/Alpha1 gs
+0.0000 0.0000 0.0000 rg
+0.0000 0.0000 0.0000 RG
+1.0000 0.0000 0.0000 1.0000 0.0000 0.0000 cm
+Q
+q
+1.0000 0.0000 0.0000 1.0000 0.0000 0.0000 cm
+0.0000 0.0000 m
+0.0000 1945.0 l
+2410.0 1945.0 l
+2410.0 0.0000 l
+h
+W
+n
+3.8379 0.0000 0.0000 3.8379 0.0000 0.0000 cm
+Q
+q
+3.8379 0.0000 0.0000 3.8379 0.0000 0.0000 cm
+0.0000 0.0000 m
+628.00 0.0000 l
+628.00 507.00 l
+0.0000 507.00 l
+h
+W
+n
+/Alpha1 gs
+1.0000 1.0000 1.0000 rg
+1.0000 1.0000 1.0000 RG
+0.0000 0.0000 m
+628.00 0.0000 l
+628.00 507.00 l
+0.0000 507.00 l
+0.0000 0.0000 l
+h
+f
+/Alpha1 gs
+0.0000 0.0000 0.0000 rg
+0.0000 0.0000 0.0000 RG
+1 J
+1 j
+30.486 399.01 m
+30.486 393.18 28.790 387.48 25.604 382.60 c
+.48602 399.01 l
+h
+S
+q
+1.0000 0.0000 0.0000 -1.0000 30.000 395.00 cm
+BT
+0.0000 0.0000 Td
+/F1 12.000 Tf
+(q) Tj
+ET
+Q
+45.486 399.01 m
+45.486 383.64 37.643 369.33 24.686 361.07 c
+.48602 399.01 l
+h
+S
+q
+1.0000 0.0000 0.0000 -1.0000 33.000 366.00 cm
+BT
+0.0000 0.0000 Td
+/F1 12.000 Tf
+(j) Tj
+ET
+Q
+.48602 399.01 m
+258.15 230.73 l
+S
+q
+1.0000 0.0000 0.0000 -1.0000 100.00 325.00 cm
+BT
+0.0000 0.0000 Td
+/F2 12.000 Tf
+(a) Tj
+ET
+Q
+.48602 399.01 m
+165.99 139.55 l
+S
+q
+1.0000 0.0000 0.0000 -1.0000 69.000 275.00 cm
+BT
+0.0000 0.0000 Td
+/F2 12.000 Tf
+(b) Tj
+ET
+Q
+165.99 139.55 m
+235.29 245.66 l
+S
+258.15 230.73 m
+258.15 399.01 l
+S
+q
+1.0000 0.0000 0.0000 -1.0000 224.00 321.00 cm
+BT
+0.0000 0.0000 Td
+/F2 12.000 Tf
+(cos) Tj
+/F1 12.000 Tf
+(q) Tj
+ET
+Q
+258.15 399.01 m
+.48602 399.01 l
+S
+16.962 399.01 m
+.48602 399.01 l
+S
+165.99 139.55 m
+165.99 399.01 l
+S
+q
+1.0000 0.0000 0.0000 -1.0000 170.00 247.00 cm
+BT
+0.0000 0.0000 Td
+/F2 12.000 Tf
+(cos) Tj
+/F1 12.000 Tf
+(j) Tj
+ET
+Q
+Q
+Q
+
+endstream
+endobj
+
+8 0 obj
+   1864
+endobj
+
+9 0 obj
+   << 
+      /Type /Font
+      /Subtype /Type1
+      /Name /F2
+      /BaseFont /Helvetica
+      /Encoding 10 0 R
+   >>
+endobj
+
+11 0 obj
+   << 
+      /Type /Font
+      /Subtype /Type1
+      /Name /F1
+      /BaseFont /Symbol
+      /Encoding 12 0 R
+   >>
+endobj
+
+10 0 obj
+   << 
+      /Type /Encoding
+      /Differences [0 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /breve /caron /circumflex /dotaccent /hungarumlaut /ogonek /ring /tilde /space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle /parenleft /parenright /asterisk /plus /comma /hyphen /period /slash /zero /one /two /three /four /five /six /seven /eight /nine /colon /semicolon /less /equal /greater /question /at /A /B /C /D /E /F /G /H /I /J /K /L /M /N /O /P /Q /R /S /T /U /V /W /X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore /grave /a /b /c /d /e /f /g /h /i /j /k /l /m /n /o /p /q /r /s /t /u /v /w /x /y /z /braceleft /bar /braceright /asciitilde /.notdef /bullet /dagger /daggerdbl /ellipsis /emdash /endash /florin /fraction /guilsinglleft /guilsinglright /minus /perthousand /quotedblbase /quotedblleft /quotedblright /quoteleft /quoteright /quotesinglbase /trademark /fi /fl /Lslash /OE /Scaron /Ydieresis /Zcaron /dotlessi /lslash /oe /scaron /zcaron /.notdef /Euro /exclamdown /cent /sterling /currency /yen /brokenbar /section /dieresis /copyright /ordfeminine /guillemotleft /logicalnot /.notdef /registered /macron /degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered /cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown /Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla /Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis /Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply /Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls /agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla /egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis /eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide /oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]
+   >>
+endobj
+
+12 0 obj
+   << 
+      /Type /Encoding
+      /Differences [0 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /space /exclam /universal /numbersign /existential /percent /ampersand /suchthat /parenleft /parenright /asteriskmath /plus /comma /minus /period /slash /zero /one /two /three /four /five /six /seven /eight /nine /colon /semicolon /less /equal /greater /question /congruent /Alpha /Beta /Chi /Delta /Epsilon /Phi /Gamma /Eta /Iota /theta1 /Kappa /Lambda /Mu /Nu /Omicron /Pi /Theta /Rho /Sigma /Tau /Upsilon /sigma1 /Omega /Xi /Psi /Zeta /bracketleft /therefore /bracketright /perpendicular /underscore /radicalex /alpha /beta /chi /delta /epsilon /phi /gamma /eta /iota /phi1 /kappa /lambda /mu /nu /omicron /pi /theta /rho /sigma /tau /upsilon /omega1 /omega /xi /psi /zeta /braceleft /bar /braceright /similar /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /Euro /Upsilon1 /minute /lessequal /fraction /infinity /florin /club /diamond /heart /spade /arrowboth /arrowleft /arrowup /arrowright /arrowdown /degree /plusminus /second /greaterequal /multiply /proportional /partialdiff /bullet /divide /notequal /equivalence /approxequal /ellipsis /arrowvertex /arrowhorizex /carriagereturn /aleph /Ifraktur /Rfractur /weierstrass /circlemultiply /circleplus /emptyset /intersection /union /propersuperset /reflexsuperset /notsubset /propersubset /reflexsubset /element /notelement /angle /gradient /registerserif /copyrightserif /trademarkserif /product /radical /dotmath /logicalnot /logicaland /logicalor /arrowdblboth /arrowdblleft /arrowdblup /arrowdblright /arrowdbldown /lozenge /angleleft /registersans /copyrightsans /trademarksans /summation /parenlefttp /parenleftex /parenleftbt /bracketlefttp /bracketleftex /bracketleftbt /bracelefttp /braceleftmid /braceleftbt /braceex /.notdef /angleright /integral /integraltp /integralex /integralbt /parenrighttp /parenrightex /parenrightbt /bracketrighttp /bracketrightex /bracketrightbt /bracerighttp /bracerightmid /bracerightbt /.notdef]
+   >>
+endobj
+
+3 0 obj
+   << 
+      /Parent null
+      /Type /Pages
+      /MediaBox [0.0000 0.0000 595.00 791.00]
+      /Resources 13 0 R
+      /Kids [6 0 R]
+      /Count 1
+   >>
+endobj
+
+14 0 obj
+   [/PDF /Text /ImageC]
+endobj
+
+15 0 obj
+   << 
+      /F2 9 0 R
+      /F1 11 0 R
+   >>
+endobj
+
+16 0 obj
+   << 
+      /Alpha1
+      << 
+         /ca 1.0000
+         /CA 1.0000
+         /BM /Normal
+         /AIS false
+      >>
+   >>
+endobj
+
+13 0 obj
+   << 
+      /ProcSet 14 0 R
+      /Font 15 0 R
+      /ExtGState 16 0 R
+   >>
+endobj
+
+4 0 obj
+   << 
+      /Type /Outlines
+      /First 17 0 R
+      /Last 17 0 R
+   >>
+endobj
+
+17 0 obj
+   << 
+      /Parent 4 0 R
+      /Title (Page 1 \(untitled\))
+      /Prev null
+      /Next null
+      /Dest [6 0 R /Fit]
+   >>
+endobj
+
+xref
+0 18
+0000000000 65535 f
+0000000019 00000 n
+0000000344 00000 n
+0000007632 00000 n
+0000008189 00000 n
+0000000537 00000 n
+0000000621 00000 n
+0000000718 00000 n
+0000002656 00000 n
+0000002684 00000 n
+0000002972 00000 n
+0000002829 00000 n
+0000005120 00000 n
+0000008086 00000 n
+0000007815 00000 n
+0000007860 00000 n
+0000007930 00000 n
+0000008287 00000 n
+
+trailer
+<< 
+   /Size 17
+   /Root 2 0 R
+   /Info 1 0 R
+>>
+
+startxref
+8441
+
+%%EOF
+1 0 obj<</Author()/CreationDate(D:20090911180700-04'00')/Creator(FreeHEP Graphics2D Driver)/Keywords()/ModDate(D:20090911180825-04'00')/Producer(org.freehep.graphicsio.c.q Revision: 1.6 )/Subject()/Title()/Trapped/False>>endobj2 0 obj<</Metadata 18 0 R/OpenAction[6 0 R/Fit]/Outlines 4 0 R/PageMode/UseOutlines/Pages 3 0 R/Type/Catalog/ViewerPreferences 5 0 R>>endobj6 0 obj<</Contents 7 0 R/CropBox[9.0 252.0 262.0 512.0]/Parent 3 0 R/Type/Page>>endobj18 0 obj<</Length 3834/Subtype/XML/Type/Metadata>>stream
+<?xpacket begin="Ôªø" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 4.2.1-c041 52.342996, 2008/05/07-20:48:00        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:dc="http://purl.org/dc/elements/1.1/">
+         <dc:format>application/pdf</dc:format>
+         <dc:creator>
+            <rdf:Seq>
+               <rdf:li/>
+            </rdf:Seq>
+         </dc:creator>
+         <dc:description>
+            <rdf:Alt>
+               <rdf:li xml:lang="x-default"/>
+            </rdf:Alt>
+         </dc:description>
+         <dc:title>
+            <rdf:Alt>
+               <rdf:li xml:lang="x-default"/>
+            </rdf:Alt>
+         </dc:title>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/">
+         <xmp:CreateDate>2009-09-11T18:07-04:00</xmp:CreateDate>
+         <xmp:CreatorTool>FreeHEP Graphics2D Driver</xmp:CreatorTool>
+         <xmp:ModifyDate>2009-09-11T18:08:25-04:00</xmp:ModifyDate>
+         <xmp:MetadataDate>2009-09-11T18:08:25-04:00</xmp:MetadataDate>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:pdf="http://ns.adobe.com/pdf/1.3/">
+         <pdf:Keywords/>
+         <pdf:Producer>org.freehep.graphicsio.c.q Revision: 1.6 </pdf:Producer>
+         <pdf:Trapped>False</pdf:Trapped>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+            xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/">
+         <xmpMM:DocumentID>uuid:319a9b1e-36e3-414b-95b3-c5bdbe1d58d1</xmpMM:DocumentID>
+         <xmpMM:InstanceID>uuid:b7887232-95d8-4225-a725-b0e2b6654d09</xmpMM:InstanceID>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?>
+endstreamendobjxref
+0 3
+0000000000 65535 f
+0000008906 00000 n
+0000009136 00000 n
+6 1
+0000009279 00000 n
+18 1
+0000009368 00000 n
+trailer
+<</Size 19/Root 2 0 R/Info 1 0 R/ID[<E67D8CE26B43D64891DA6FE32E6D06CB><E67D8CE26B43D64891DA6FE32E6D06CB>]/Prev 8441>>
+startxref
+13280
+%%EOF
