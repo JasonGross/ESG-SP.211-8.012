@@ -1,24 +1,28 @@
-\documentclass[solutions]{esg8012pset} 
+\documentclass{esg8012pset}
+\begin{preamble}
   \usepackage{amsmath}
   \usepackage{amssymb}
   \usepackage{enumerate}
   \usepackage{graphicx}
   \providecommand{\uvec}[1]{{\hat{\bf{#1}}}}
-\classname{Physics 8.012} 
-\semester{Fall 2010} 
-\problemsetnumber{1} 
-\date{September 8} 
-\duedate{Friday, September 17} 
-\readingassignment{Chapter One: Kleppner and Kolenkow, \emph {An Introduction to Mechanics}} 
+\end{preamble}
+
+\classname{Physics 8.012}
+\semester{Fall 2010}
+\problemsetnumber{1}
+\date{September 8}
+\duedate{Friday, September 17}
+\readingassignment{Chapter One: Kleppner and Kolenkow, \emph{An Introduction to Mechanics}}
 \begin{document}
-\section*{Problem 1: Fermi Problem (This problem is hard and should be a challenge.)}
-\subsection*{Problem}
-  One of the moons of Jupiter, Europa, is reported to have its surface covered by an ocean of water
+
+\begin{problem}{Fermi Problem (This problem is hard and should be a challenge.)}
+  One of the moons of Jupiter, Europa, is reported to have its surface covered by an ocean of water 
   which is 100 km deep.  The outermost 8 km are frozen as ice. The radius of Europa is
   approximately 1/4 the radius of the earth. Estimate the pressure at the bottom of Europa's ocean.
   (Note: there is some speculation that the combination of internal heat and water makes the ocean
   of Europa the best candidate in the solar system outside the earth for organized life to evolve.)
-\subsection*{Solution}
+\end{problem}% note that having no space at the beginning of this line is IMPORTANT
+\begin{solution}
   Pressure at bottom of ocean?  Force / Area.  $(7.5\cdot 10^{21}\text{ N}) / (2.7 \cdot 10^{13}\text{ m}^2) \approx 3 \cdot 10^8$ N / m$^2$
   \begin{itemize}
     \item Force: Mass $\cdot$ Acceleration (due to gravity). $(3 \cdot 10^{21}\text{ kg}) \cdot (2.5\text{m / s}^2) \approx 7.5\cdot 10^{21}$ N
@@ -43,8 +47,9 @@
     \item Height: the height is about 100 km
     \item Acceleration due to gravity: Since mass is linear in volume, and volume is cubic in radius, Europa has about $\frac{1}{4^3}$ the mass of earth, and since the force of gravity is linear in mass / the square of the radius, the force of gravity on Europa is about $\frac{4^2}{4^3} = \frac{1}{4}$ that on earth, so it's about 2.5 m/s$^2$  Alternatively, by dimensional analysis, the acceleration due to gravity is linear in m$^{-1}$, so the acceleration due to gravity on Europa is about $\frac{1}{4}$ that of earth.
   \end{itemize}
-\section*{Problem 2: Kinematics-One Dimension}
-\subsection*{Problem}
+\end{solution}% note that having no space at the beginning of this line is IMPORTANT
+
+\begin{problem}{Kinematics-One Dimension}
   A bus leaves a stop at MIT and accelerates at a constant rate for 5 seconds. During this time the
   bus traveled 25 meters. Then the bus traveled at a constant speed for 15 seconds. Then the driver
   noticed a red light 18 meters ahead and slams on the brakes. Assume the bus decelerates at a
@@ -59,7 +64,8 @@
     \item Make a graph of the velocity vs. time for the entire trip.
     \item Make a graph of the acceleration vs. time for the entire trip.
   \end{enumerate}
-\subsection*{Solution}
+\end{problem}
+\begin{solution}
   \begin{enumerate}[a)]
     \item Since $\displaystyle \int_{0}^{5}\int_{0}^{t} a \d{t'}\d{t} = 25\ \text{m}$, $\frac{1}{2}a \cdot 5^2 = 25$, so $2$ m / s$^2$.
     \item 10 m / s
@@ -70,8 +76,9 @@
     \item \includegraphics[width=0.85\textwidth]{ps01_Plot_2}
     \item \includegraphics[width=0.85\textwidth]{ps01_Plot_3}
   \end{enumerate}
-\section*{Problem 3: Kinematics-One Dimension}
-\subsection*{Problem}
+\end{solution}
+
+\begin{problem}{Kinematics-One Dimension}
   You are a running as fast as you can at a constant velocity, $v_p$, trying to catch a bus that is at rest
   at a bus stop. When you are still a distance $b$ away from the bus stop, the bus starts to accelerate
   at a constant rate $a_\text{bus}$.
@@ -80,38 +87,44 @@
     \item Draw graphs showing the motion of the bus and yourself.
     \item How long did it take to catch the bus?
   \end{enumerate}
-\subsection*{Solution}
+\end{problem}
+\begin{solution}
   \begin{enumerate}[a)]
     \item If you just catch the bus after time $t$, then $v_p = a_{bus}t$.  If you catch the bus after time $t$, $v_p t = b + \frac{1}{2}a_{bus}t^2 = b + \frac{1}{2}v_p t$, so $t = \sqrt{2\frac{b}{a_{bus}}}$.  Then $v_p = \sqrt{2 b a_{bus}}$.
     \item \includegraphics[width=0.85\textwidth]{ps01_Plot_4}
     \item $\sqrt{2\frac{b}{a_{bus}}}$
   \end{enumerate}
-\section*{Problem 4: K\&K 1.7}
-\subsection*{Problem}
+\end{solution}
+
+\begin{problem}{K\&K 1.7}
   Let $\uvec a$ and $\uvec b$ be unit vectors in the $xy$ plane making angles $\theta$ and $\phi$ with the $x$ axis,
   respectively. Show that $\uvec a = \cos\theta\uvec i + \sin\theta\uvec j$, $\uvec b = \cos\phi\uvec i + \sin\phi\uvec j$, and using vector algebra prove
 that $\cos(\theta -\phi ) = \cos\theta \cos\phi + \sin\theta \sin\phi$.
-\subsection*{Solution}
+\end{problem}
+\begin{solution}
   \includegraphics[width=0.85\textwidth]{ps01_Diagram_1}
 
   As seen in the diagram, by the definition of $\cos$ and $\sin$, $\uvec a = \cos\theta\uvec i + \sin\theta\uvec j$.  By relabeling, $\uvec b = \cos\phi\uvec i + \sin\phi\uvec j$.
   \begin{center}\includegraphics[width=.33\textwidth]{ps01_Diagram_2}\end{center}
 
   By the definition of $\cos$, $\cos(\phi - \theta) = \vec a \cdot \vec b$ (since $\vec a$ and $\vec b$ are unit vectors).  Then $\cos(\theta - \phi) = \cos(\phi - \theta) = \cos\theta\cos\phi + \sin\theta\sin\phi$.
-\section*{Problem 5: K\&K 1.12}
-\subsection*{Problem}
+\end{solution}
+
+\begin{problem}{K\&K 1.12}
   The acceleration of gravity can be measured by projecting a body upward and measuring the
   time that it takes to pass two given points in both directions. Show that if the time the body takes
   to pass a horizontal line $A$ in both directions is $T_A$ , and the time to go by a second line $B$ is $T_B$,
   then, assuming that the acceleration is constant, its magnitude is
   $$g = \frac{8h}{T_A^2 - T_B^2}$$
   \begin{center}\includegraphics[width=0.35\textwidth]{ps01_1}\end{center}
-\subsection*{Solution}
+\end{problem}
+\begin{solution}
   Since acceleration is constant downwards, $\frac{\partial^2 y}{\partial t^2} = g$.  Then $y(t) = y_0 + v_0 t + \frac{1}{2} g t^2$.  It is given that for some $t$, $y\left(t + \frac{T_B}{2}\right) = y\left(t - \frac{T_B}{2}\right)$, and $y\left(t + \frac{T_A}{2}\right) - y\left(t + \frac{T_B}{2}\right) = h$.  Translate the function such that this $t = 0$.  Then $v_0 \frac{T_B}{2} + \frac{1}{2} g \left(\frac{T_B}{2}\right)^2 = -v_0 \frac{T_B}{2} + \frac{1}{2} g \left(\frac{T_B}{2}\right)^2$.  Equivalently, $v_0 = 0$.
 
   Then, the other conditions states that $\frac{1}{2} g\left(\left(\frac{T_A}{2}\right)^2 - \left(\frac{T_B}{2}\right)^2\right) = h$.  Solving for $g$, $g = \frac{8h}{T_A^2 - T_B^2}$.
-\section*{Problem 6: K\&K 1.15}
-\subsection*{Problem}
+\end{solution}
+
+\begin{problem}{K\&K 1.15}
   By relative velocity we mean velocity with respect to a specified coordinate system. (The term
   velocity, alone, is understood to be relative to the observer's coordinate system.)
   \begin{center}\includegraphics[width=0.35\textwidth]{ps01_2}\end{center}
@@ -122,13 +135,14 @@ that $\cos(\theta -\phi ) = \cos\theta \cos\phi + \sin\theta \sin\phi$.
   as shown. At $t = 0$ they are both at the point $\vec r = l\hat j$, where $l$ is the radius of the circle.
   Find the velocity of $a$ relative to $b$.
   \end{enumerate}
-\subsection*{Solution}
+\end{problem}
+\begin{solution}
   \begin{enumerate}[a.]
     \item The position vectors are related by $$\vec r_B = \vec r_A - \vec R.$$  Then velocities are related by the taking derivatives, (law of addition of velocities) $$\vec v_B = \vec v_A - \vec V.$$  %Assuming $\left\| \vec v_A\right\|$ and $\left\| \frac{\partial \vec R}{\partial t} \right\|$   are negligible compared to $c$, the velocity relative to coordinate system $B$ is $\frac{\partial\vec v_A}{\partial t} - \frac{\partial \vec R}{\partial t}$.
     \item Let's choose two reference frames; frame B is centered at particle b, and frame A is centered at the center of the circle in the figure below.
     \begin{center}\includegraphics{ps01_Solution_06_01}\end{center}
-    Then the relative position vector between the origins of the two frames is given by
-    \begin{equation*} \vec R = l\hat r.\end{equation*}
+    Then the relative position vector between the origins of the two frames is given by 
+    \begin{equation*} \vec R = l\har r.\end{equation*}
     The position vector of particle a relative to frame A is given by
     \begin{equation*} \vec r_A = l\vec r'. \end{equation*}
     The position vector of particle b in frame B can be found by substituting Eqs. (1.4) and (1.3) into
@@ -144,11 +158,12 @@ Then Eq. (1.5) giving the position vector of particle b in frame B becomes
 In order to find the velocity vector of particle a in frame B (i.e. with respect to particle b),
 differentiate Eq. (1.8)
 (2 sin ) ˆ (2 cos ) ˆ 2 cos ˆ B
-        $\vec a = l\hat r_a$, $\vec b = l\hat r_b$.  %The velocity of $a$ relative to $b$, $\vec a_b$, is $\frac{\partial\vec v_A}{\partial t} - \frac{\partial \vec b}{\partial t} = l\left(\frac{\partial\hat r_a}{\partial t} - \frac{\partial \hat r_b}{\partial t}\right)$.  Since it is circular motion, $\frac{\partial \hat r_a}{\partial t} = -\omega\hat\theta$ and $\frac{\partial \hat r_b}{\partial t} = \omega\hat\theta$.  Then $\vec a_b = -2l\omega\hat\theta = 2 l \omega \cos(\omega t)\hat i$. \par Equivalently,
+        $\vec a = l\hat r_a$, $\vec b = l\hat r_b$.  %The velocity of $a$ relative to $b$, $\vec a_b$, is $\frac{\partial\vec v_A}{\partial t} - \frac{\partial \vec b}{\partial t} = l\left(\frac{\partial\hat r_a}{\partial t} - \frac{\partial \hat r_b}{\partial t}\right)$.  Since it is circular motion, $\frac{\partial \hat r_a}{\partial t} = -\omega\hat\theta$ and $\frac{\partial \hat r_b}{\partial t} = \omega\hat\theta$.  Then $\vec a_b = -2l\omega\hat\theta = 2 l \omega \cos(\omega t)\hat i$. \par Equivalently, 
     $\hat r_a = \cos(\omega t)\hat j + \sin(\omega t)\hat i$ and $\hat r_b = \cos(\omega t)\hat j -\sin(\omega t)\hat i$.  The velocity of $a$ relative to $b$, $\vec a_b$, is $\frac{\partial\vec v_A}{\partial t} - \frac{\partial \vec b}{\partial t} = l\left(\frac{\partial\hat r_a}{\partial t} - \frac{\partial \hat r_b}{\partial t}\right)$.  Since it is circular motion, $\frac{\partial \hat r_b}{\partial t} = -\omega(\sin(\omega t)\hat j + \cos(\omega t)\hat i)$ and $\frac{\partial \hat r_a}{\partial t} = \omega(-\sin(\omega t)\hat j + \cos(\omega t)\hat i)$.  Then $\vec a_b = l\omega\left(-\sin(\omega t)\hat j + \cos(\omega t)\hat i + \sin(\omega t)\hat j + \cos(\omega t)\hat i\right) = 2 l \omega \cos(\omega t)\hat i$.
   \end{enumerate}
-\section*{Problem 7: K\&K 1.19}
-\subsection*{Problem}
+\end{solution}
+
+\begin{problem}{K\&K 1.19}
   A bicycle wheel of radius $a$ is rolling in a straight line without slipping at a constant horizontal
   velocity $V$. A bead is fixed to a spoke a distance $b$ from the center of the wheel.
   \begin{center}\includegraphics[width=0.5\textwidth]{ps01_3}\end{center}
@@ -163,15 +178,17 @@ differentiate Eq. (1.8)
     \item Find the position and velocity of the bead as a function of time as seen by the observer fixed
   to the ground. Make sure you use appropriate unit vectors in your answer.
   \end{enumerate}
-\subsection*{Solution}
+\end{problem}
+\begin{solution}
   \begin{enumerate}[a)]
     \item The angular velocity of the wheel, $\omega = 2\pi \frac{V}{2\pi a} = \frac{V}{a}$.  Then the position of the bead is given by $\vec r = b\cos\left(\frac{V}{a}t\right)\hat i + b\sin\left(\frac{V}{a}t\right)\hat j$.  $\frac{\partial \vec r}{\partial t} = -b\frac{V}{a}\sin\left(\frac{V}{a}t\right)\hat i + b\frac{V}{a}\cos\left(\frac{V}{a}t\right)\hat j$
     \item $\frac{\partial \vec x}{\partial t} = V\hat i$ and $\vec x = V t\hat i$
     \item $\omega = 2\pi \frac{V}{2\pi a} = \frac{V}{a}$
     \item $\vec r_G = \left(b\cos\left(\frac{V}{a}t\right) + Vt\right)\hat i + b\sin\left(\frac{V}{a}t\right)\hat j$ and $\frac{\partial \vec r_G}{\partial t} = \left(-b\frac{V}{a}\sin\left(\frac{V}{a}t\right) + V\right)\hat i + b\frac{V}{a}\cos\left(\frac{V}{a}t\right)\hat j$
   \end{enumerate}
-\section*{Problem 8: K\&K 1.20}
-\subsection*{Problem}
+\end{solution}
+
+\begin{problem}{K\&K 1.20}
   A particle moves outward along a spiral. Its trajectory is given by
   $r = A\theta$, where $A$ is a constant, $A = (1/\pi )$ m $\cdot$ rad$^{-1}$.  $\theta$ increases in time according to $\theta =\alpha t^2 / 2$, where $\alpha$ is a constant.
   \begin{enumerate}[a.]
@@ -180,7 +197,8 @@ differentiate Eq. (1.8)
     \item Show that the radial acceleration is zero when $\theta =1/\sqrt{2}$ rad.
     \item At what angles do the radial and tangential accelerations have equal magnitude?
   \end{enumerate}
-\subsection*{Solution}
+\end{problem}
+\begin{solution}
   \begin{enumerate}[a.]
     \item \includegraphics[width=0.85\textwidth]{ps01_Diagram_3}
     \item \begin{align*}
@@ -205,12 +223,16 @@ differentiate Eq. (1.8)
           Since all of the coefficient of $\hat r$ is 0, the radial acceleration is 0.
     \item  The radial and tangential accelerations have equal magnitudes if $1- 2\theta^2 = 5\theta$.  That is, $\theta \equiv \frac{-5\pm\sqrt{33}}{4}\pmod{2\pi}$.
   \end{enumerate}
-\section*{Problem 9: K\&K 1.21}
-\subsection*{Problem}
+\end{solution}
+
+\begin{problem}{K\&K 1.21}
   A person throws a rock from the top of a hill. The hill slopes downward uniformly at angle $\phi$. At
   what angle $\theta$ from the horizontal should the person throw the rock so that it has the greatest
   range?
   \begin{center}\includegraphics[width=0.5\textwidth]{ps01_4}\end{center}
-\subsection*{Solution}
+\end{problem}
+\begin{solution}
   The height of the hill, $h_h(x)$, is $-x\tan \phi$.  The acceleration of the rock, $\frac{\partial^2 \vec r(t)}{\partial t^2}$, is $-g\hat j$.  The velocity of the rock, $\frac{\partial \vec r(t)}{\partial t}$, is $(v_0\sin\theta -gt)\hat j + v_0\cos\theta \hat i$.  The position of the rock, $\vec r(t)$, is $\left(v_0 t\sin\theta -\frac{1}{2}gt^2\right)\hat j + v_0 t\cos\theta \hat i$.  The rock stops when $v_0 t\sin\theta -\frac{1}{2}gt^2 = -v_0 t \cos\theta\tan \phi$, or $v_0\sin\theta -\frac{1}{2}gt = -v_0 \cos\theta\tan \phi$.  Solving for $t$, $t = \frac{2v_0\sin\theta + 2v_0 \cos\theta\tan \phi}{g}$.  The maximal range occurs when $v_0 t\cos\theta = v_0 \frac{2v_0\sin\theta\cos\theta}{g} + v_0\frac{2v_0 \cos^2\theta\tan \phi}{g} = \frac{v_0^2\sin2\theta + 2v_0^2 \cos^2\theta\tan \phi}{g}$ is maximal, which occurs when $\frac{2v_0^2\cos2\theta + 4v_0^2 \cos\theta\sin\theta\tan \phi}{g} = 0$, or $\cos2\theta\cos\phi + \sin2\theta\sin \phi = \cos(\phi - 2\theta) = 0$.  This is true when $\phi - 2\theta = 2k\pi \pm \frac{\pi}{4}$ for $k\in\mathbb{Z}$.  Then, the optimal angle is $\frac{\phi}{2} - \frac{\pi}{8}$.
+\end{solution}
+
 \end{document}
