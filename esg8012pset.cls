@@ -153,10 +153,10 @@
     \end{center}%
     {\noindent  \@classname, \@semester \par}%
     \begin{center}%
-      {\noindent \large \@title \par}%
+      {\noindent \Large \@title \par}%
     \end{center}%
-    {\noindent  Handed out: \@date \hfill Due: \@duedate \\\\}%
-    {\noindent  Reading: \@readingassignment \par}%
+    {\noindent Due: \@duedate \\\\}%
+    {\noindent Reading: \@readingassignment \par}%
   \endgroup
 \endgroup}
 \newcounter{esg8012pset@problem@counter}
