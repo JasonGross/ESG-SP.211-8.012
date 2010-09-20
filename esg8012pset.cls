@@ -104,6 +104,21 @@
   }
 }
 
+\pagestyle{fancy}
+\headheight 14.5pt
+\fancyhead{}
+\fancyfoot{}
+\ifthenelse{\boolean{esg8012pset@problems}}{%
+  \chead{Problems}
+}{
+  \ifthenelse{\boolean{esg8012pset@solutions}}{
+    \chead{Solutions}
+  }{
+    \chead{}
+  }
+}
+  \cfoot{\thepage\ of \pageref{LastPage}}
+
 \AtBeginDocument{
   \pagestyle{fancy}
   \headheight 14.5pt
