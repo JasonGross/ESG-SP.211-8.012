@@ -29,11 +29,11 @@
 \RequirePackage{verbatim}
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage{etoolbox,etextools}
-\newboolean{solutions}\newboolean{problems}
-\DeclareOption{problems}{\setboolean{problems}{true}\setboolean{solutions}{false}}
-\DeclareOption{solutions}{\setboolean{problems}{false}\setboolean{solutions}{true}}
+\newboolean{esg8012pset@solutions}\newboolean{esg8012pset@problems}
+\DeclareOption{problems}{\setboolean{esg8012pset@problems}{true}\setboolean{esg8012pset@solutions}{false}}
+\DeclareOption{solutions}{\setboolean{esg8012pset@problems}{false}\setboolean{esg8012pset@solutions}{true}}
 \ProcessOptions\relax
-\ifthenelse{\boolean{problems} \OR \boolean{solutions}}{
+\ifthenelse{\boolean{esg8012pset@problems} \OR \boolean{esg8012pset@solutions}}{
 }{
   \newwrite\esgpset@problemsout
   \newwrite\esgpset@solutionsout
@@ -109,17 +109,21 @@
   \headheight 14.5pt
   \fancyhead{}
   \fancyfoot{}
-  \ifthenelse{\boolean{problems}}{%
+  \ifthenelse{\boolean{esg8012pset@problems}}{%
     \chead{Problems}
   }{
-    \ifthenelse{\boolean{solutions}}{
+    \ifthenelse{\boolean{esg8012pset@solutions}}{
       \chead{Solutions}
     }{
       \chead{}
     }
   }
   \cfoot{\thepage\ of \pageref{LastPage}}
-  \title{Problem Set \@problemsetnumber}
+  \ifthenelse{\boolean{esg8012pset@solutions}}{
+    \title{Problem Set \@problemsetnumber\space Solutions}
+  }{
+    \title{Problem Set \@problemsetnumber}
+  }
   \maketitle
   \global\let\duedate\relax
   \global\let\problemsetnumber\relax
@@ -138,6 +142,7 @@
 \newcommand*{\classname}[1]{\gdef\@classname{#1}}
 \newcommand*{\readingassignment}[1]{\gdef\@readingassignment{#1}}
 \def\@maketitle{\begingroup%
+  \cfoot{\thepage\ of \pageref{LastPage}}
   \newpage
   \pagestyle{fancy}
   \cfoot{\thepage\ of \pageref{LastPage}}
