@@ -157,7 +157,6 @@
     {\noindent Due: \@duedate \\\\}%
     {\noindent Reading: \@readingassignment \par}%
   \endgroup
-\endgroup
   \global\let\duedate\relax
   \global\let\problemsetnumber\relax
   \global\let\semester\relax
