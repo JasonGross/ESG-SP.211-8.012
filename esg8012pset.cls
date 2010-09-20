@@ -134,12 +134,30 @@
     }
   }
   \cfoot{\thepage\ of \pageref{LastPage}}
-  \ifthenelse{\boolean{esg8012pset@solutions}}{
-    \title{Problem Set \@problemsetnumber\space Solutions}
-  }{
-    \title{Problem Set \@problemsetnumber}
-  }
-  \maketitle
+  \bf
+  \null
+  %\vskip 2em%
+  \let \footnote \thanks
+  \begingroup
+    \bf
+    \begin{center}%
+      {\noindent  MASSACHUSETTS INSTITUTE OF TECHNOLOGY \par}%
+      {\noindent  Experimental Study Group \par}%
+    \end{center}%
+    {\noindent  \@classname, \@semester \par}%
+    \begin{center}%
+      {\noindent \Large
+      \ifthenelse{\boolean{esg8012pset@solutions}}{%
+        Problem Set \@problemsetnumber\space Solutions
+      }{%
+        Problem Set \@problemsetnumber
+      } %
+      \par}%
+    \end{center}%
+    {\noindent Due: \@duedate \\\\}%
+    {\noindent Reading: \@readingassignment \par}%
+  \endgroup
+\endgroup
   \global\let\duedate\relax
   \global\let\problemsetnumber\relax
   \global\let\semester\relax
@@ -156,30 +174,6 @@
 \newcommand*{\semester}[1]{\gdef\@semester{#1}}
 \newcommand*{\classname}[1]{\gdef\@classname{#1}}
 \newcommand*{\readingassignment}[1]{\gdef\@readingassignment{#1}}
-\def\@maketitle{\begingroup%
-  \cfoot{\thepage\ of \pageref{LastPage}}
-  \newpage
-  \pagestyle{fancy}
-  \cfoot{\thepage\ of \pageref{LastPage}}
-  \headheight 14.5pt
-  \bf
-  \null
-  %\vskip 2em%
-  \let \footnote \thanks
-  \begingroup
-    \bf
-    \begin{center}%
-      {\noindent  MASSACHUSETTS INSTITUTE OF TECHNOLOGY \par}%
-      {\noindent  Experimental Study Group \par}%
-    \end{center}%
-    {\noindent  \@classname, \@semester \par}%
-    \begin{center}%
-      {\noindent \Large \@title \par}%
-    \end{center}%
-    {\noindent Due: \@duedate \\\\}%
-    {\noindent Reading: \@readingassignment \par}%
-  \endgroup
-\endgroup}
 \newcounter{esg8012pset@problem@counter}
 \newenvironment{problem}[2][\relax]{%
   \ifthenelse{\equal{#1}{\relax}}{%
