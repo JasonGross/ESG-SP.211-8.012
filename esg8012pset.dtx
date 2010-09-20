@@ -233,6 +233,7 @@
 %    names and the date in a |\large| font.
 %    \begin{macrocode}
 \def\@maketitle{\begingroup%
+  \cfoot{\thepage\ of \pageref{LastPage}}
   \newpage
   \pagestyle{fancy}
   \cfoot{\thepage\ of \pageref{LastPage}}
