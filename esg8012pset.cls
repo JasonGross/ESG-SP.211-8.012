@@ -140,6 +140,7 @@
 \def\@maketitle{\begingroup%
   \newpage
   \pagestyle{fancy}
+  \cfoot{\thepage\ of \pageref{LastPage}}
   \headheight 14.5pt
   \bf
   \null
