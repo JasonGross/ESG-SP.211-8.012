@@ -28,9 +28,9 @@
 %<class>\RequirePackage[margin=1in]{geometry}
 %<class>\RequirePackage{etoolbox,etextools}
 %
-%<class>\newboolean{solutions}\newboolean{problems}
-%<class>\DeclareOption{problems}{\setboolean{problems}{true}\setboolean{solutions}{false}}
-%<class>\DeclareOption{solutions}{\setboolean{problems}{false}\setboolean{solutions}{true}}
+%<class>\newboolean{esg8012pset@solutions}\newboolean{esg8012pset@problems}
+%<class>\DeclareOption{problems}{\setboolean{esg8012pset@problems}{true}\setboolean{esg8012pset@solutions}{false}}
+%<class>\DeclareOption{solutions}{\setboolean{esg8012pset@problems}{false}\setboolean{esg8012pset@solutions}{true}}
 %<class>\ProcessOptions\relax
 %
 %<*driver>
@@ -93,7 +93,7 @@
 %
 % \section{Setup}
 %    \begin{macrocode}
-\ifthenelse{\boolean{problems} \OR \boolean{solutions}}{
+\ifthenelse{\boolean{esg8012pset@problems} \OR \boolean{esg8012pset@solutions}}{
 }{
   \newwrite\esgpset@problemsout
   \newwrite\esgpset@solutionsout
@@ -171,17 +171,21 @@
   \headheight 14.5pt
   \fancyhead{}
   \fancyfoot{}
-  \ifthenelse{\boolean{problems}}{%
+  \ifthenelse{\boolean{esg8012pset@problems}}{%
     \chead{Problems}
   }{
-    \ifthenelse{\boolean{solutions}}{
+    \ifthenelse{\boolean{esg8012pset@solutions}}{
       \chead{Solutions}
     }{
       \chead{}
     }
   }
   \cfoot{\thepage\ of \pageref{LastPage}}
-  \title{Problem Set \@problemsetnumber}
+  \ifthenelse{\boolean{esg8012pset@solutions}}{
+    \title{Problem Set \@problemsetnumber\space Solutions}
+  }{
+    \title{Problem Set \@problemsetnumber}
+  }
   \maketitle
   \global\let\duedate\relax
   \global\let\problemsetnumber\relax
