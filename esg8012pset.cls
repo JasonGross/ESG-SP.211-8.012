@@ -41,10 +41,18 @@
   \newcommand{\esgpset@compilefile}[1]{\write18{pdflatex "#1.tex"}}
   \edef\esgpset@problemsfilename{\jobname\string_Problems.tex}
   \edef\esgpset@solutionsfilename{\jobname\string_Solutions.tex}
+  \edef\esgpset@tempfilename{\string~\jobname.tmp}
   \newcommand{\writetoboth}[1]{\writetoproblems{#1}%
     \writetosolutions{#1}}
+  \newcommand{\writetoall}[1]{\writetoboth{#1}\writetothis{#1}}
   \newcommand{\writetoproblems}[1]{\immediate\write\esgpset@problemsout{#1}}
   \newcommand{\writetosolutions}[1]{\immediate\write\esgpset@solutionsout{#1}}
+  \newcommand{\writetothis}[1]{%
+    \immediate\openout\esgpset@tempout\esgpset@tempfilename
+    \immediate\write\esgpset@tempout{\the\verbatim@line}
+    \immediate\closeout\esgpset@tempout
+    \input\esgpset@tempout
+  }
 
   \immediate\openout\esgpset@problemsout\esgpset@problemsfilename
   \immediate\openout\esgpset@solutionsout\esgpset@solutionsfilename
@@ -72,11 +80,15 @@
 
   \newenvironment{preamble}{%
     \begingroup% Lets Keep the Changes Local
+      \immediate\openout\esgpset@tempout\esgpset@tempfilename
       \@bsphack
       \let\do\@makeother\dospecials\catcode`\^^M\active
-      \def\verbatim@processline{\writetoboth{\the\verbatim@line}}
+      \def\verbatim@processline{\writetoboth{\the\verbatim@line}\immediate\write\esgpset@tempout{\the\verbatim@line}}
       \verbatim@start
-    }{\@esphack\endgroup}
+    }{\@esphack
+      \immediate\closeout\esgpset@tempout\endgroup
+      \input{\esgpset@tempfilename}%
+    }
 
   \AtBeginDocument{
 
@@ -114,30 +126,26 @@
   \ifthenelse{\boolean{esg8012pset@solutions}}{
     \chead{Solutions}
   }{
-    \chead{}
+    \chead{Problems}
   }
 }
-  \cfoot{\thepage\ of \pageref{LastPage}}
+\cfoot{\thepage\space of \pageref{LastPage}}
 
 \AtBeginDocument{
-  \pagestyle{fancy}
-  \headheight 14.5pt
-  \fancyhead{}
-  \fancyfoot{}
-  \ifthenelse{\boolean{esg8012pset@problems}}{%
-    \chead{Problems}
-  }{
-    \ifthenelse{\boolean{esg8012pset@solutions}}{
-      \chead{Solutions}
-    }{
-      \chead{}
-    }
-  }
-  \cfoot{\thepage\ of \pageref{LastPage}}
-  \bf
-  \null
-  %\vskip 2em%
-  \let \footnote \thanks
+  %\pagestyle{fancy}
+  %\headheight 14.5pt
+  %\fancyhead{}
+  %\fancyfoot{}
+  %\ifthenelse{\boolean{esg8012pset@problems}}{%
+  %  \chead{Problems}
+  %}{
+  %  \ifthenelse{\boolean{esg8012pset@solutions}}{
+  %    \chead{Solutions}
+  %  }{
+  %    \chead{}
+  %  }
+  %}
+  %\cfoot{\thepage\ of \pageref{LastPage}}
   \begingroup
     \bf
     \begin{center}%
@@ -147,11 +155,10 @@
     {\noindent  \@classname, \@semester \par}%
     \begin{center}%
       {\noindent \Large
-      \ifthenelse{\boolean{esg8012pset@solutions}}{%
-        Problem Set \@problemsetnumber\space Solutions
-      }{%
         Problem Set \@problemsetnumber
-      } %
+        \ifthenelse{\boolean{esg8012pset@solutions}}{% \OR \NOT \boolean{esg8012pset@problems}{%
+          \space Solutions%
+        }{}%
       \par}%
     \end{center}%
     {\noindent Due: \@duedate \\\\}%
@@ -177,17 +184,20 @@
 \newenvironment{problem}[2][\relax]{%
   \ifthenelse{\equal{#1}{\relax}}{%
     \stepcounter{esg8012pset@problem@counter}%
-    \writetoboth{\string\section*{Problem \arabic{esg8012pset@problem@counter}: #2}}%
+    \writetoall{\string\section*{Problem \arabic{esg8012pset@problem@counter}: #2}}%
   }{%
-    \writetoboth{\string\section*{Problem #1: #2}}%
+    \writetoall{\string\section*{Problem #1: #2}}%
   }%
   \writetosolutions{\string\subsection*{Problem}}%
   \begingroup% Lets Keep the Changes Local
     \@bsphack
+    \immediate\openout\esgpset@tempout\esgpset@tempfilename
     \let\do\@makeother\dospecials\catcode`\^^M\active
-    \def\verbatim@processline{\writetoboth{\the\verbatim@line}}%
+    \def\verbatim@processline{\writetoboth{\the\verbatim@line}\immediate\write\esgpset@tempout{\the\verbatim@line}}%
     \verbatim@start
-}{\@esphack\endgroup}
+}{\@esphack\immediate\closeout\esgpset@tempout\endgroup
+  \input{\esgpset@tempfilename}%
+}
 \newenvironment{solution}{%
   \writetosolutions{\string\subsection*{Solution}}%
   \begingroup% Lets Keep the Changes Local
