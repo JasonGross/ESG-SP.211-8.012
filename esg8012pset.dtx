@@ -101,7 +101,7 @@
   \newcommand{\esgpset@compilefile}[1]{\write18{pdflatex "#1.tex"}}
   \edef\esgpset@problemsfilename{\jobname\string_Problems.tex}
   \edef\esgpset@solutionsfilename{\jobname\string_Solutions.tex}
-  \edef\esgpset@tempfilename{\jobname\string.tex~}
+  \edef\esgpset@tempfilename{\jobname.tmp}
   \newcommand{\writetoboth}[1]{\writetoproblems{#1}%
     \writetosolutions{#1}}
   \newcommand{\writetoall}[1]{\writetoboth{#1}\writetothis{#1}}
