@@ -41,18 +41,13 @@
   \newcommand{\esgpset@compilefile}[1]{\write18{pdflatex "#1.tex"}}
   \edef\esgpset@problemsfilename{\jobname\string_Problems.tex}
   \edef\esgpset@solutionsfilename{\jobname\string_Solutions.tex}
-  \edef\esgpset@tempfilename{\string~\jobname.tmp}
+  \edef\esgpset@tempfilename{\jobname\string~}
   \newcommand{\writetoboth}[1]{\writetoproblems{#1}%
     \writetosolutions{#1}}
   \newcommand{\writetoall}[1]{\writetoboth{#1}\writetothis{#1}}
   \newcommand{\writetoproblems}[1]{\immediate\write\esgpset@problemsout{#1}}
   \newcommand{\writetosolutions}[1]{\immediate\write\esgpset@solutionsout{#1}}
-  \newcommand{\writetothis}[1]{%
-    \immediate\openout\esgpset@tempout\esgpset@tempfilename
-    \immediate\write\esgpset@tempout{\the\verbatim@line}
-    \immediate\closeout\esgpset@tempout
-    \input\esgpset@tempout
-  }
+  \newcommand{\writetothis}[1]{{\edef\temp{#1}\expandafter}\expandafter\scantokens\expandafter{\temp}}
 
   \immediate\openout\esgpset@problemsout\esgpset@problemsfilename
   \immediate\openout\esgpset@solutionsout\esgpset@solutionsfilename
@@ -63,11 +58,15 @@
     \endgroup
     \immediate\closeout\esgpset@problemsout
     \immediate\closeout\esgpset@solutionsout
-    \write18{pdflatex "\esgpset@problemsfilename"}
-    \write18{pdflatex "\esgpset@solutionsfilename"}
+    %\write18{pdflatex "\esgpset@problemsfilename"}
+    %\write18{pdflatex "\esgpset@solutionsfilename"}
   }
   \expandafter\expandafter\expandafter\def\expandafter\expandafter\expandafter\enddocument
     \expandafter\expandafter\expandafter{\expandafter\esgpset@end@hook\enddocument}
+
+  \global\let\esgpset@begin@hook\relax
+  \expandafter\def\expandafter\begin
+    \expandafter#\expandafter1\expandafter{\expandafter\esgpset@begin@hook\begin{#1}}% This is a terrible, terrible hack.
 
   \begingroup
     \writetosolutions{%
@@ -87,7 +86,7 @@
       \verbatim@start
     }{\@esphack
       \immediate\closeout\esgpset@tempout\endgroup
-      \input{\esgpset@tempfilename}%
+      \gdef\esgpset@begin@hook{\input{\esgpset@tempfilename}\global\let\esgpset@begin@hook\relax}%
     }
 
   \AtBeginDocument{
