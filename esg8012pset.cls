@@ -119,32 +119,21 @@
 \headheight 14.5pt
 \fancyhead{}
 \fancyfoot{}
-\ifthenelse{\boolean{esg8012pset@problems}}{%
-  \chead{Problems}
-}{
-  \ifthenelse{\boolean{esg8012pset@solutions}}{
-    \chead{Solutions}
-  }{
-    \chead{Problems}
-  }
-}
 \cfoot{\thepage\space of \pageref{LastPage}}
 
 \AtBeginDocument{
-  %\pagestyle{fancy}
-  %\headheight 14.5pt
-  %\fancyhead{}
-  %\fancyfoot{}
-  %\ifthenelse{\boolean{esg8012pset@problems}}{%
-  %  \chead{Problems}
-  %}{
-  %  \ifthenelse{\boolean{esg8012pset@solutions}}{
-  %    \chead{Solutions}
-  %  }{
-  %    \chead{}
-  %  }
-  %}
-  %\cfoot{\thepage\ of \pageref{LastPage}}
+  \begingroup
+    \ifthenelse{\boolean{esg8012pset@problems}}{%
+      \edef\@cheader{Problem Set \@problemsetnumber\space - Problems}
+    }{
+      \ifthenelse{\boolean{esg8012pset@solutions}}{
+        \edef\@cheader{Problem Set \@problemsetnumber\space - Solutions}
+      }{
+        \edef\@cheader{Problem Set \@problemsetnumber\space - Problems}
+      }
+    }
+  \expandafter\endgroup
+  \expandafter\chead\expandafter{\@cheader}
   \begingroup
     \bf
     \begin{center}%

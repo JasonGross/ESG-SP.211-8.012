@@ -1,0 +1,125 @@
+\documentclass[solutions]{esg8012pset} 
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{enumerate}
+  \usepackage{graphicx}
+  \usepackage{hyperref}
+  \providecommand{\uvec}[1]{{\hat{\bf{#1}}}}
+  \usepackage{pgf,tikz}
+  \usetikzlibrary{arrows}
+  \makeatletter
+  \newcommand{\interitemtext}[1]{%
+    \begin{list}{}
+     {\itemindent=0mm\labelsep=0mm
+     \labelwidth=0mm\leftmargin=0mm
+     \addtolength{\leftmargin}{-\@totalleftmargin}}
+      \item #1
+    \end{list}
+  }
+  \makeatother
+  \renewcommand{\d}{\,d}
+  \providecommand{\norm}[1]{\lVert#1\rVert}
+\classname{Physics 8.012} 
+\semester{Fall 2010} 
+\problemsetnumber{5} 
+\date{October 1} 
+\duedate{Friday, October 15} 
+\readingassignment{Kleppner and Kolenkow, \emph {An Introduction to Mechanics}, Chapter Three} 
+\begin{document}
+\section*{Problem 1: K\&K 3.14: Two people jumping off cart}
+\subsection*{Problem}
+  $N$ people, each of mass $m_p$, stand on a railway flatcar of mass $m_c$. They jump off one end of the flatcar with velocity $u$ relative to the car. The car rolls in the opposite direction without friction.
+  \begin{enumerate}[(a)]
+    \item What is the final velocity of the car if all the people jump at the same time?
+    \item What is the final velocity of the car if the people jump off one at a time?
+    \item Does case (a) or (b) yield the largest final velocity of the flat car?  Give a physical explanation for your answer.
+  \end{enumerate}
+\subsection*{Solution}
+  \begin{enumerate}[a)]
+    \item Since the car undergoes no acceleration after the people leave, $u$ is relative to the final speed.  $(N m_p + m_c)v = N m_p u$, so $v = \frac{N m_p u}{N m_p + m_c}$
+    \item Let $v(k)$ denote the velocity after $k$ people have jumped.  Then $v(0) = 0$.  Then $(m_c + (N - k + 1)m_p)v(k - 1) = (m_c + (N - k)m_p)v(k) + (v(k) - u) m_p = (m_c + (N - k + 1)m_p)v(k)  - u m_p$.  Then $v(k) = \frac{(m_c + (N - k + 1)m_p)v(k - 1) + u m_p}{m_c + (N - k + 1)m_p} = v(k - 1) + \frac{u m_p}{m_c + (N - k + 1)m_p}$.  Then $v(k) = \sum_{i=1}^{k} \frac{u m_p}{m_c + (N - i + 1)m_p} = \sum_{i=0}^{k-1} \frac{u m_p}{m_c + (N - i)m_p}$.
+    \item \begin{align*} v(0) & = 0 \\
+      v(1) & = \frac{u m_p}{m_c + N m_p} \\
+      v(2) & = u m_p\left(\frac{1}{m_c + N m_p} + \frac{1}{m_c + (N - 1) m_p}\right)
+    \end{align*} Since the fractions are increasing in b), b) has the larger final velocity.  This is because in a), each person is changing the momentum of the car, with all the people on it, while in b), each successive person has to change the momentum of less mass.
+  \end{enumerate}
+\section*{Problem 2: K\&K 3.15}
+\subsection*{Problem}
+  A rope of mass $m$ and length $l$ lies on a frictionless table, with a short portion $l_0$ hanging through a hole. Initially the rope is at rest.
+  \begin{enumerate}[(a)]
+    \item Find a general differential equation for $y(t)$, the length of rope through the hole.
+    \item Solve the differential equation with appropriate initial conditions for $y(t)$, the length of rope through the hole.
+  \end{enumerate}
+\subsection*{Solution}
+  \begin{enumerate}[(a)]
+    \item Assume the rope is of uniform mass.  Then $m\frac{\d^2 y}{\d t^2} = \frac{y(t)}{l}m g$, so $\frac{\d^2 y}{\d t^2} = y(t)\frac{g}{l}$.
+    \item $y(t) = Ae^{\alpha t} + Be^{-\alpha t}$, so $y(t) = Ae^{\sqrt{\frac{g}{l}}t}+Be^{-\sqrt{\frac{g}{l}}t}$.  Since $\dot y(0) = 0$, $\sqrt{\frac{g}{l}}t\left(Ae^{\sqrt{\frac{g}{l}}t}-Be^{-\sqrt{\frac{g}{l}}t}\right) = 0$, so $e^{-\sqrt{\frac{g}{l}}t}\left(Ae^{2\sqrt{\frac{g}{l}}t} - B\right)$, so $B = Ae^{2\sqrt{\frac{g}{l}}t}$.  Then $y(t) = A\left(e^{\sqrt{\frac{g}{l}}t}+e^{2\sqrt{\frac{g}{l}}t}e^{-\sqrt{\frac{g}{l}}t}\right) = A\left(e^{\sqrt{\frac{g}{l}}t}+e^{\sqrt{\frac{g}{l}}t}\right) = 2Ae^{\sqrt{\frac{g}{l}}t}$.  Since $y(0) = l_0$, $2A = l_0$, so $y(t) = l_0 e^{\sqrt{\frac{g}{l}}t}$.
+  \end{enumerate}
+\section*{Problem 3: K\&K 3.16}
+\subsection*{Problem}
+  Water shoots out of a fire hydrant having nozzle diameter $D$ with nozzle speed $V_0$. What is the reaction force on the hydrant?
+\subsection*{Solution}
+  Let $\rho$ be the density of water.
+  \begin{align*}
+   \frac{\d p}{\d t} & = \lim_{\Delta t \longrightarrow 0} \frac{(m + \Delta m)V_0 - m V_0}{\Delta t} \\
+    & = \lim_{\Delta t \longrightarrow 0} \frac{\rho A V_0 \Delta t V_0}{\Delta t} \\
+    & = \rho A V_0^2 \\
+    & = \rho \pi r^2 V_0^2 \\
+    & = \rho \frac{\pi D^2}{4} V_0^2 \\
+    & = \frac{\rho \pi D^2 V_0^2}{4}
+  \end{align*}
+\section*{Problem 4: K\&K 3.18}
+\subsection*{Problem}
+  A raindrop of initial mass $m_0$ starts falling from rest under the influence of gravity. Assume that the raindrop gains mass from the cloud at a rate proportional to the momentum of the raindrop, $\d m / \d t = k m v$, where $m$ is the instantaneous mass of the raindrop, $v$ is the instantaneous velocity of the raindrop, and $k$ is a constant. You may neglect air resistance.
+  \begin{enumerate}[(a)]
+    \item Derive a differential equation for the velocity of the raindrop.
+    \item Show that the speed of the drop eventually becomes effectively constant and give an expression for the terminal speed.
+    \item Assume the air resistance is proportional to the square of the velocity. How would air resistance effect the terminal speed?
+  \end{enumerate}
+\subsection*{Solution}
+  \begin{enumerate}[a)]
+    \item $m g = F = \frac{\d p}{\d t} = \lim_{t\rightarrow 0} \frac{(m + \Delta m)(v + \Delta v) - m v}{\Delta t} = m\frac{\d v}{\d t} + v \frac{\d m}{\d t}$.  Since $\frac{\d m}{\d t} = k m v$, $m g = m\frac{\d v}{\d t} + k m v^2$, so $g = \frac{\d v}{\d t} + k v^2$, so $\frac{\d v}{\d t} = g - k v^2$.
+    \item If $k v^2 > g$, $\frac{\d v}{\d t} < 0$, and if $k v^2 > g$, $\frac{\d v}{\d t} > 0$, so $k v^2$ limits to $g$.  Then $v_{\text{terminal}} = \sqrt{\frac{g}{k}}$.
+    \item It would decrease it, if the resistance were proportional to mass.  As it is, it will make the rain drop never reach terminal velocity, but it will not change the terminal velocity.  $m g - a v^2 = F = m\frac{\d v}{\d t} + k m v^2$, so $m g = m\frac{\d v}{\d t} + (k m + a) v^2$, so $\frac{\d v}{\d t} = g - \left(k + \frac{a}{m(t)}\right) v^2 = g - \left(k + \frac{a}{m(t)}\right) v^2$.  Since $\frac{\d m}{\d t} = \frac{\d m}{\d z}\frac{\d z}{\d t} = \frac{\d m}{\d z}v = k m v$, $\frac{\d m}{\d z} = k m$.  Then $m = m_0 e^{k z}$.  \begin{align*}
+   \frac{\d v}{\d t} & = \frac{\d v}{\d z} \frac{\d z}{\d t} \\
+    & = g - \left(k + \frac{a}{m(t)}\right) v^2 \\
+    & = g - \left(k + \frac{a}{m_0 e^{k z}}\right) v^2 \\
+   g & = \frac{\d v}{\d z}v + \left(k + \frac{a}{m_0 e^{k z}}\right) v^2 \\
+   \intertext{Let $w(z) = v(z)^2$.  Then $\frac{\d w}{\d z} = 2v\frac{\d v}{\d z}$.}
+   g & = \frac{1}{2}\frac{\d w}{\d z} + w\left(k + \frac{a}{m_0 e^{k z}}\right) \\
+   2g & = \frac{\d w}{\d z} + 2w\left(k + \frac{a}{m_0 e^{k z}}\right) \\
+   \intertext{Using Mathematica, (and adjusting the bounds of integration to be more appropriate)}
+   w(z) & = C_1 e^{-2\int_1^z \left(k + \frac{a}{m_0 e^{k z_1}}\right)\d z_1} + e^{-2\int_0^z \left(k + \frac{a}{m_0 e^{k z_1}}\right)\d z_1} 2g\int_0^z e^{2\int_0^{z_1}\left(k + \frac{a}{m_0 e^{k z_2}}\right)\d z_2} \d z_1 \\
+    & = C_1 e^{-2\left( k z + \frac{a}{m_0} \int_0^z e^{-k z_1}\d z_1\right)} + e^{-2\left( k z + \frac{a}{m_0}\int_0^z e^{-k z_1}\d z_1\right)} 2g\int_0^z e^{2\left(k z_1 + \frac{a}{m_0}\int_0^{z_1}e^{-k z_2}\d z_2\right)} \d z_1 \\
+    & = C_1 e^{-2\left( k z + \frac{a}{m_0} \cdot \frac{e^{-k z}}{-k}\right)} + e^{-2\left( k z + \frac{a}{m_0}\cdot \frac{e^{-k z}}{-k}\right)} 2g\int_0^z e^{2\left(k z_1 + \frac{a}{m_0}\cdot \frac{e^{-k z_1}}{-k}\right)} \d z_1 \\
+    & = C_1 e^{2\left(\frac{a e^{-k z}}{m_0 k} -  k z\right)} + e^{2\left(\frac{a e^{-k z}}{m_0 k} - k z\right)} 2g\int_0^z e^{2\left(k z_1 - \frac{a e^{-k z_1}}{m_0 k}\right)} \d z_1 \\
+    \intertext{Since $w(0) = 0$,}
+   w(0) = 0 & = C_1 e^{2\left(\frac{a e^{0}}{m_0 k} -  0 \right)} + e^{2\left(\frac{a e^{0}}{m_0 k} - 0\right)} 2g\int_0^0 e^{2\left(k z_1 - \frac{a e^{-k z_1}}{m_0 k}\right)} \d z_1 \\
+    & = C_1 e^{\frac{2a}{m_0 k}}\\
+   \intertext{Then $C_1 = 0$.}
+   w(z) & = e^{2\left(\frac{a e^{-k z}}{m_0 k} - k z\right)} 2g\int_0^z e^{2\left(k z_1 - \frac{a e^{-k z_1}}{m_0 k}\right)} \d z_1 \\
+   v(z) & = \sqrt{2g}e^{\frac{a e^{-k z}}{m_0 k} - k z} \sqrt{\int_0^z e^{2\left(k z_1 - \frac{a e^{-k z_1}}{m_0 k}\right)} \d z_1} \\
+  \end{align*}% $\int_{m_0}^{m} \frac{\d m}{m} = k \int_0^{t_f} v \d t$.  Then $\ln\frac{m}{m_0} = k (y_t + v_{\text{terminal}}t)$.    Since terminal velocity is when $\d v / \d t = 0$, $v = \sqrt{\frac{g}{k + \frac{a}{m_0 + k\int_0^t m v\d t}}}$
+    %Let $m_t$ denote the mass, and $t_t$ denote the time, when the raindrop first reaches terminal velocity.  Since terminal velocity is when $\d v / \d t = 0$, $v = \sqrt{\frac{g}{k + \frac{a}{m_t + k\int_{t_t}^t m v\d t}}} = \sqrt{\frac{g}{k + \frac{a}{m_t + k v\int_{t_t}^t m \d t}}} = \sqrt{\frac{g}{k + \frac{a}{m_t + k v\int_{t_t}^t\int_{t_t}^t k m v \d t}}}$ FIX
+  \end{enumerate}
+\section*{Problem 5: K\&K 3.20}
+\subsection*{Problem}
+  A rocket ascends from rest in a uniform gravitational field by ejecting exhaust with constant speed $u$ relative to the rocket. Assume that the rate at which mass is expelled is given by $\d m / \d t = \gamma m$, where $m$ is the instantaneous mass of the rocket and $\gamma$ is a constant. The rocket is retarded by air resistance with a force $F = b m v$ proportional to the instantaneous momentum of the rocket where $b$ is a constant. Find the velocity of the rocket as a function of time.
+\subsection*{Solution}
+  \begin{align*}
+   -b m v - m g & = \frac{(m - \d m)(v + \d v) + \d m (v - u) - m v}{\d t} \\
+    & = m\frac{\d v}{\d t} - v\frac{\d m}{\d t} + \frac{\d m}{\d t}(v - u) \\
+    & = m\frac{\d v}{\d t} - u\gamma m \\
+   -b v - g & = \frac{\d v}{\d t} - u\gamma \\
+   \frac{\d v}{\d t} & = -b v + u\gamma - g \\
+   \frac{-1}{b}\frac{\d v}{\d t} & = v + \frac{g - u\gamma}{b} \\
+   \d t & =\frac{-1}{b}\frac{\d v}{v + \frac{g - u\gamma}{b}} \\
+   \int_0^t \d t & = \frac{-1}{b}\int_{0}^{v}\frac{\d v}{v + \frac{g - u\gamma}{b}} \\
+   t & = \frac{-1}{b}\left(\ln\left( v + \frac{g - u\gamma}{b}\right) - \ln\left(\frac{g - u\gamma}{b}\right)\right) \\
+   -b t & = \ln\left( \frac{b v + g - u\gamma}{g - u\gamma}\right) \\
+   e^{-b t} & = \frac{b v + g - u\gamma}{g - u\gamma} \\
+   b v + g - u\gamma & = (g - u\gamma)e^{-b t} \\
+   b v & = (g - u\gamma)e^{-b t} - g + u\gamma \\
+   v(t) & = \frac{g - u\gamma}{b}e^{-b t} + \frac{u\gamma - g}{b}
+  \end{align*}
+\end{document}
