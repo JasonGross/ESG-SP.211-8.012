@@ -4,10 +4,12 @@
 SCRIPT=$(readlink -f $0)
 # Absolute path this script is in. /home/user/bin
 SCRIPTPATH=`dirname $SCRIPT`
+CURRENTDIR=$PWD
 
-pushd $SCRIPTPATH >/dev/null
-cp id_rsa{,.pub} /tmp/
-popd >/dev/null
-chmod 600 /tmp/id_rsa{,.pub}
+cd $SCRIPTPATH
+cp id_rsa /tmp/
+cp id_rsa.pub /tmp/
+cd $CURRENTDIR
+chmod 600 /tmp/id_rsa /tmp/id_rsa.pub
 ssh -i /tmp/id_rsa "$@" 
-rm /tmp/id_rsa{,.pub}
+rm /tmp/id_rsa /tmp/id_rsa.pub
