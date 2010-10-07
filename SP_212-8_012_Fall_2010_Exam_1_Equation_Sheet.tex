@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{sectsty}
+\sectionfont{\large}
+\let\oldvec=\vec
+\let\oldhat=\hat
+\renewcommand{\vec}[1]{\oldvec{\boldsymbol{#1}}}
+\renewcommand{\hat}[1]{\oldhat{\boldsymbol{#1}}}
+\newcommand{\uvec}[1]{\hat{#1}}
+\pagestyle{empty}
+\begin{document}
+{\large
+\begin{center}
+\textbf{\textsc{Massachusetts Institute of Technology}} \\
+ \textbf{Department of Physics} \\
+ \textbf{Experimental Study Group}
+\end{center}
+\noindent \textbf{Physics 8.012 \hfill Fall Term 2010}} \par
+
+\section*{Kinematics in Polar Coordinates}
+\begin{align*}
+  \vec r & = r \uvec r &
+  \vec v & = \dot r\uvec r + r\dot\theta \uvec\theta &
+  \vec a & = \left(\ddot r - r(\dot \theta)^2\right)\uvec r + \left(2\dot r\dot \theta + r \ddot \theta\right)\uvec \theta \\
+  \\
+  \vec r & = r \uvec r &
+  \vec v & = \frac{dr}{dt}\uvec r + r\frac{d\theta}{dt} \uvec\theta &
+  \vec a & = \left(\frac{d^2r}{dt^2} - r\left(\frac{d\theta}{dt}\right)^2\right)\uvec r + \left(2\frac{dr}{dt}\frac{d\theta}{dt} + r \frac{d^2\theta}{dt^2}\right)\uvec \theta
+\end{align*}
+
+%\section*{Newton's Second Law}
+%\begin{align*}
+  %\vec F & = m \vec a = \frac{d}{dt}(m \vec v) & \vec F^\text{ext} & = \frac{d\vec p_\text{sys}}{dt}
+%\end{align*}
+%
+%\section*{Torque and Angular Momentum}
+%\begin{align*}
+  %\vec \tau_S & = \sum_{i=1}^N \vec r_{S, i} \times \vec F_i &
+    %\vec L_S & = \sum_{i = 1}^N \vec r_{S, i} \times m_i \vec v_i &
+      %\vec \tau_S & = \frac{d\vec L_S}{dt} \\
+  %\vec \tau_S & =\vec r_{S, F} \times \vec F + \vec \tau_\text{cm} &
+    %\vec L_S & = \vec r_{S, \text{cm}} \times m\vec v_\text{cm} + \vec L_\text{cm}
+%\end{align*}
+%
+%\section*{Principle Axes}
+%\begin{align*}
+  %\vec \omega & = \vec \omega_1 + \vec \omega_2 + \vec \omega_3 \\
+  %\vec L_\text{cm} & = I_1 \vec \omega_1 + I_2 \vec \omega_2 + I_3 \vec \omega_3 \\
+  %K_\text{cm} & = \frac{1}{2} I_1 \omega_1^2 + \frac{1}{2} I_2 \omega_2^2 + \frac{1}{2} I_3 \omega_3^2
+%\end{align*}
+%
+%\section*{Energy}
+%\begin{align*}
+  %K & = \frac{1}{2} m v_\text{cm}^2 + K_\text{cm} &
+    %W_{AB} & \equiv \smashoperator{\int}_A^B \vec F \cdot d\vec s = \Delta K \\
+  %U(B) - U(A) & = -\smashoperator{\int}_A^B \vec F_c \cdot d\vec s &
+    %W_\text{nc} & = \Delta K + \Delta U \equiv \Delta E
+%\end{align*}
+
+\end{document}
