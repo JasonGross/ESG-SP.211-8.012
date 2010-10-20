@@ -27,8 +27,8 @@
 \duedate{Friday, Month Day \csname latex@error\endcsname {Date not yet decided}} 
 \readingassignment{Kleppner and Kolenkow, \emph {An Introduction to Mechanics}, Chapter Six} 
 \begin{document}
-\section*{Problem 1: K\&K 6.14}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.14}
+\subsection{Problem}
   A uniform stick of mass $m$ and length $l$ is suspended horizontally with end $B$ at the edge of a table and the other end $A$ is held by hand. Point A is suddenly released. At the instant after release:
   \begin{center}\includegraphics[width=0.33\textwidth]{ps09_1}\end{center}
   \begin{enumerate}[(a)]
@@ -37,7 +37,7 @@
     \item What is the vertical acceleration of the center of mass?
     \item What is the vertical component of the hinge force at $B$? Does the hinge force have a horizontal component at the instant after release?
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[(a)]
     \item The center of mass is at a distance $l / 2$ from the table, and so the torque, treating it as a point mass, is $m g l / 2$.  Alternatively, $\vec \tau = \int_0^l \lambda(x) g x \d x = \frac{\lambda l^2 g}{2} = m l g / 2$.
     \item The angular acceleration is \begin{align*}
@@ -51,15 +51,15 @@
     \item The vertical acceleration is $r\alpha = \frac{3 g l}{4 l} = \frac{3}{4}g$.
     \item The vertical component of the hinge force is $m\frac{g}{4}$.  The hinge force has no horizontal component, because the center of mass is not accelerating in the horizontal direction.
   \end{enumerate}
-\section*{Problem 2: K\&K 6.18}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.18}
+\subsection{Problem}
   A physical pendulum consists of a disc of radius $R$ and mass $m_d$ fixed at the end of a rod of mass $m_r$ and length $l$.
   \begin{center}\includegraphics[width=0.3\textwidth]{ps09_2}\end{center}
   \begin{enumerate}[(a)]
     \item Find the period of the pendulum.
     \item How does the period change if the disk is mounted to the rod by a frictionless bearing so that it is perfectly free to spin?
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[(a)]
     \item Since the pendulum is a rigid body, and the the center of mass is at length $\frac{m_d l + m_r l / 2}{m_d + m_r}$, the forces can be taken to act at this point.  Let $\theta$ be the angle from the vertical.  Then $\tau = \frac{m_d l + m_r l / 2}{m_d + m_r} (m_d + m_r)g\sin\theta = (m_d l + m_r l / 2)g\sin\theta$.  Then $\frac{\d L}{\d t} = (m_d l + m_r l / 2)g\sin\theta$.
     \begin{thm}[Parallel Axis Theorem]
@@ -92,11 +92,11 @@
     \end{align*} Then $\ddot \theta = \frac{-(m_d l + m_r l / 2)g\sin\theta}{m_r\frac{l^3}{3} + m_d l^2 + \frac{m_d R^2}{2}}$.  Using the small angle approximation of $\sin\theta\approx \theta$, $\frac{\d^2 \theta}{\d t^2} = -\frac{(m_d l + m_r l / 2)g}{m_r\frac{l^3}{3} + m_d l^2 + \frac{m_d R^2}{2}}\theta$.  Then $\omega = \sqrt{\frac{(m_d l + m_r l / 2)g}{m_r\frac{l^3}{3} + m_d l^2 + \frac{m_d R^2}{2}}}$ and the period is $\frac{2\pi}{\sqrt{\frac{(m_d l + m_r l / 2)g}{m_r\frac{l^3}{3} + m_d l^2 + \frac{m_d R^2}{2}}}}$.
     \item If the disc is allowed to rotate freely, then the disc acts as a point mass on the end of the rod.  Then $I = m_r\frac{l^3}{3} + m_d l^2$, so $\ddot \theta = \frac{-(m_d l + m_r l / 2)g\sin\theta}{m_r\frac{l^3}{3} + m_d l^2}$.  Using the small angle approximation of $\sin\theta\approx \theta$, $\frac{\d^2 \theta}{\d t^2} = -\frac{(m_d l + m_r l / 2)g}{m_r\frac{l^3}{3} + m_d l^2}\theta$.  Then $\omega = \sqrt{\frac{(m_d l + m_r l / 2)g}{m_r\frac{l^3}{3} + m_d l^2}}$ and the period is $\frac{2\pi}{\sqrt{\frac{(m_d l + m_r l / 2)g}{m_r\frac{l^3}{3} + m_d l^2}}}$.
   \end{enumerate}
-\section*{Problem 3: K\&K 6.24}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.24}
+\subsection{Problem}
   A drum $A$ of mass $m$ and radius $R$ is suspended from a drum $B$ also of mass $m$ and radius $R$, which is free to rotate about its axis. The suspension is in the form of a massless metal tape wound around the outside of each drum, and free to unwind. Gravity is directed downwards. Both drums are initially at rest. Find the initial acceleration of drum $A$, assuming that it moves straight down.
   \begin{center}\includegraphics[width=0.25\textwidth]{ps09_3}\end{center}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
   \clip(-1.1,0) rectangle (3.1,8.1);
   \draw(0,5) circle (1cm);
@@ -124,8 +124,8 @@
   \frac{4T}{m} & = g - \frac{T}{m} \\
   T & = \frac{1}{5}m g
   \end{align*}  Then $a_A = \frac{4}{5}g$.
-\section*{Problem 4: K\&K 6.29}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.29}
+\subsection{Problem}
   A Yo-Yo of mass $m$ has an axle of radius $b$ and a spool of radius $R$. It's moment of inertia can be taken to be $I = (1/2)mR^2$ and the thickness of the string can be neglected.
 
   The Yo-Yo is released from rest.
@@ -136,7 +136,7 @@
     \item What happens to the Yo-Yo at the bottom of the string?
     \item Assuming it reverses direction with uniform angular velocity, find the average force on the string while the Yo-Yo turns around.
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[(a)]
     \item Let $y$ be the position of the Yo-Yo, with the up direction and clockwise direction positive, and let $\ell$ be the length of the string which is unwound.  Then $\frac{\d y}{\d t} = -\frac{\d \ell}{\d t} = -\omega b$.  Since $\ddot y = - g + \frac{T}{m} = -\alpha b$ and $\alpha = \frac{\tau}{I} = \frac{T b}{m R^2 / 2}$, $- g + \frac{T}{m} = -\frac{T b^2}{m R^2 / 2}$.  Then $m g = T\left(1 + \frac{2b^2}{R^2}\right)$, so $T = \frac{m g}{1 + \frac{2b^2}{R^2}} = \frac{m g R^2}{R^2 + 2b^2}$. \par
       Going up, $\frac{\d y}{\d t} = -\frac{\d \ell}{\d t} = \omega b$.  Since $\ddot y = -g + \frac{T}{m} = \alpha b$ and $\alpha = \frac{\tau}{I} = \frac{T b}{m R^2 / 2}$, $- g + \frac{T}{m} = \frac{T b^2}{m R^2 / 2}$.  Then $m g = T\left(1 - \frac{2b^2}{R^2}\right)$, so $T = \frac{m g}{1 - \frac{2b^2}{R^2}} = \frac{m g R^2}{R^2 - 2b^2}$.
@@ -144,8 +144,8 @@
     \item Assuming there is a fixed point, the Yo-Yo rotates about its point of contact with the string.  (FIX)
     \item Assuming that the speed remains constant, the average tension is $\frac{1}{\pi}\int_0^\pi \frac{m v_f^2}{R} + \sin\theta m g = \frac{m v_f^2}{b} + 2 m g$.
   \end{enumerate}
-\section*{Problem 5: K\&K 6.30}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.30}
+\subsection{Problem}
   A bowling ball of mass $m$ and radius $R$ is initially thrown down an alley with an initial velocity $v_0$ and it slides without rolling but due to friction it begins to roll. The moment of inertia of the ball about its center of mass is $I_\text{cm} = (2/5) mR^2$. What is the velocity of the bowling ball when its just start to roll without slipping.
   \begin{center}
     \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=3.0cm,y=3.0cm]
@@ -187,7 +187,7 @@
     \draw[color=black] (0.7,0.41) node {$\omega_f$};
     \end{tikzpicture}
   \end{center}
-\subsection*{Solution}
+\subsection{Solution}
 The final angular velocity is such that $\omega_f R = v_f$.  The force of friction is such that $m \dot v = F_{fr}$ and $R\times F_{fr} = I\dot\omega$.  Then \begin{align*}
 \int_0^{t_f} m \dot v \d t & = \int_0^{t_f} \frac{I}{R} \dot\omega \d t \\
 m(v_f - v_0) & = \frac{I}{R}(\omega_f - \omega_0) \\
@@ -195,8 +195,8 @@ m(v_f - v_0) & = \frac{I}{R}\omega_f \\
 m(v_f - v_0) & = \frac{I v_f}{R^2}\\
 v_f & = \frac{I v_f}{m R^2} + v_0
 \end{align*}
-\section*{Problem 6: K\&K 6.37}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.37}
+\subsection{Problem}
   A hockey puck of mass $m_1$ slides along ice with a velocity $v_0$ and strikes one end of a stick lying on the ice of length $l_2$ and mass $m_2$. The center of mass of the stick moves with an unknown magnitude $v_{cm}$. The stick also rotates about the center of mass with unknown angular velocity $\omega_{f}$. The puck continues to move in the same straight line as before it hit the stick with velocity $v_f$. Assume the ice is frictionless and there is no loss of mechanical energy during the collision.
   \begin{center}
     \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.0cm,y=2.0cm]
@@ -236,7 +236,7 @@ v_f & = \frac{I v_f}{m R^2} + v_0
     \item Find the velocity of the puck after the collision.
     \item Find the angular velocity of the stick after the collision.
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[(a)]
     \item For linear momentum, $m_1 v_0 = m_1 v_f + m_2 v_{cm}$.
     \item $\frac{1}{2}m_1v_0^2 = \frac{1}{2} m_1 v_f^2 + \frac{1}{2}m_2 v_{cm}^2 + \frac{1}{2} I \omega_f^2 = \frac{1}{2} m_1 v_f^2 + \frac{1}{2}m_2 v_{cm}^2 + \frac{1}{2} m_2 \frac{l^3}{12} \omega_f^2$.
@@ -245,17 +245,17 @@ v_f & = \frac{I v_f}{m R^2} + v_0
     \item Let $V = \frac{m_1}{m_1 + m_2}v_0$ be the velocity of the center of mass of the system.  Then $(v_0 - V) = -(v_f - V)$.  Then $v_f = 2V-v_0 = v_0\left(\frac{2m_1}{m_1 + m_2} - 1\right) = v_0\frac{m_1 - m_2}{m_1 + m_2}$
     \item Since $-\frac{l_2^2}{6}\omega_f = v_{cm}$, $\omega_f = -v_{cm}\frac{6}{l_2^2} = -\frac{12m_1}{l_2^2(m_1 + m_2)}$
   \end{enumerate}
-\section*{Problem 7: K\&K 6.41}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.41}
+\subsection{Problem}
   A plank of length $2 l$ leans against a wall. The mass of the plank is m which is uniformly distributed. The plank is initially inclined at an angle $\theta$ with respect to the horizontal. It starts to slip downward without friction.
-  \begin{center}\includegraphics[width=0.33\textwidth]{ps09_7}\end{center}
+  \begin{center}\includegraphics[width=0.25\textwidth]{ps09_7}\end{center}
   \begin{enumerate}[(a)]
     \item Draw a force diagrams showing all the forces acting on the plank. What is the condition that the plank just starts to slip from the wall.
     \item Is the mechanical energy of the plank conserved as it slips down the wall?
     \item What equations arise from the conditions for static equilibrium for both forces and torque? Think about which point to compute the torque about.
     \item Show that the top of the plank loses contact with the wall when it is two-thirds of its initial height against the wall. Hint: only a single variable and its derivatives are needed to describe the motion of the system. Consider the motion of the center of mass of the plank.
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[(a)]
     \item
   \definecolor{qqwuqq}{rgb}{0,0.39,0}

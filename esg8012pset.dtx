@@ -19,9 +19,10 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<driver>\ProvidesFile{esg8012pset.dtx}
 %<class>\ProvidesClass{esg8012pset}
-%<class> [2010/09/07 v0.1 ESG PSet Template]
+%<class> [2010/10/08 v0.1b ESG PSet Template]
 %<class>\LoadClass[notitlepage,11pt,twoside,letterpaper]{article}
 %<class>\RequirePackage{fancyhdr}
+%<class>\RequirePackage[T1]{fontenc}
 %<class>\RequirePackage{lastpage}
 %<class>\RequirePackage{xifthen}
 %<class>\RequirePackage{verbatim}
@@ -63,6 +64,7 @@
 %  Right brace   \}     Tilde         \~}
 %
 % \changes{v0.1}{2010/09/07}{Initial version.}
+% \changes{v0.1b}{2010/10/08}{Made title textsc.}
 %
 % \GetFileInfo{esg8012pset.dtx}
 %
@@ -183,6 +185,8 @@
 \fancyfoot{}
 \cfoot{\thepage\space of \pageref{LastPage}} 
 
+\let\@seccntformat\@gobble
+
 \AtBeginDocument{
   \begingroup
     \ifthenelse{\boolean{esg8012pset@problems}}{%
@@ -199,7 +203,7 @@
   \begingroup
     \bf
     \begin{center}%
-      {\noindent  MASSACHUSETTS INSTITUTE OF TECHNOLOGY \par}%
+      {\noindent  \textsc{Massachusetts Institute of Technology} \par}%
       {\noindent  Experimental Study Group \par}%
     \end{center}%
     {\noindent  \@classname, \@semester \par}%
@@ -259,15 +263,13 @@
 % \begin{environment}{statement}
 % \begin{environment}{solution}
 %    \begin{macrocode}
-\newcounter{esg8012pset@problem@counter}
 \newenvironment{problem}[2][\relax]{%
   \ifthenelse{\equal{#1}{\relax}}{%
-    \stepcounter{esg8012pset@problem@counter}%
-    \writetoall{\string\section*{Problem \arabic{esg8012pset@problem@counter}: #2}}%
+    \writetoall{\string\section{Problem \string\thesection: #2}}%
   }{%
     \writetoall{\string\section*{Problem #1: #2}}%
   }%
-  \writetosolutions{\string\subsection*{Problem}}%
+  \writetosolutions{\string\subsection{Problem}}%
   \begingroup% Lets Keep the Changes Local
     \@bsphack
     \immediate\openout\esgpset@tempout\esgpset@tempfilename
@@ -278,7 +280,7 @@
   \input{\esgpset@tempfilename}%
 }
 \newenvironment{solution}{%
-  \writetosolutions{\string\subsection*{Solution}}%
+  \writetosolutions{\string\subsection{Solution}}%
   \begingroup% Lets Keep the Changes Local
     \@bsphack
     \let\do\@makeother\dospecials\catcode`\^^M\active

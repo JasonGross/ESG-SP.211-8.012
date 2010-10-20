@@ -1,0 +1,220 @@
+\documentclass{esg8012pset}
+\begin{preamble}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{enumerate}
+  \usepackage{graphicx}
+  \usepackage{hyperref}
+  %\usepackage{siunitx}
+  \providecommand{\uvec}[1]{{\hat{\bf{#1}}}}
+  \usepackage{pgf,tikz}
+  \usetikzlibrary{arrows}
+  \makeatletter
+  \newcommand{\interitemtext}[1]{%
+    \begin{list}{}
+     {\itemindent=0mm\labelsep=0mm
+     \labelwidth=0mm\leftmargin=0mm
+     \addtolength{\leftmargin}{-\@totalleftmargin}}
+      \item #1
+    \end{list}
+  }
+  \makeatother
+  \renewcommand{\d}{\,d}
+  \providecommand{\norm}[1]{\lVert#1\rVert}
+\end{preamble}
+
+\classname{Physics 8.012}
+\semester{Fall 2010}
+\problemsetnumber{11}
+\date{Month Day\csname latex@error\endcsname{Date not yet decided}}
+\makeatletter
+\duedate{Friday, Month Day \csname latex@error\endcsname{Date not yet decided}}
+\readingassignment{Kleppner and Kolenkow, \emph{An Introduction to Mechanics}, Chapters Seven and Eight}
+
+\begin{document}
+
+\noindent Problems: Chapter 7: 1, 3, 5, 8 and Chapter 8: 1, unnumbered, 10, 12
+
+\begin{problem}{K\&K 7.1}
+  A thin hoop of mass $m$ and radius $R$ rolls without slipping about the $z$ axis. It is supported by an axle of length $R$ through its center. The hoop circles around the $z$ axis with angular speed $\Omega$. (Note: the moment of inertia of a hoop for an axis along its diameter is $(1 / 2)mR^2$.)
+  \begin{center}\includegraphics[width=0.4\textwidth]{ps11_1}\end{center}
+  \begin{enumerate}[(a)]
+    \item What is the instantaneous angular velocity $\vec \omega$ of the hoop? Specify the direction and magnitude.
+    \item What is the angular momentum $\vec L$ of the hoop about a point where the axle meets the $z$ axis? Is $\vec L$ parallel to $\vec \omega$?
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item Since the hoop is rolling without slipping, $\Omega R = \omega_s R$, so $\Omega = \omega_s$.  Then the instantaneous angular velocity is decomposable into the spin part, $\omega_s = \Omega \leftturn \hat r$, and the motion of the center of mass, $\Omega \rightturn\hat k$.  Taking $\leftturn$ to be positive, $\vec \omega = \leftturn\Omega(\hat r - \hat k)$.
+  \item Decompose $\vec L$ into $I_s \vec \omega_s + I_\text{cm} \vec \Omega = \frac{1}{2} m R^2 \Omega \leftturn \hat r + m R^2 \Omega\rightturn \hat k = \leftturn mR^2 \Omega\left(\frac12 \hat r - \hat k\right)$.  $\vec L$ is not parallel to $\vec \omega$.
+\end{enumerate}
+\end{solution}
+
+
+
+\begin{problem}{K\&K 7.3}
+  A gyroscope wheel is at one end of an axle of length $l$. The other end of the axle is suspended from a string of length $L$. The wheel is set into motion so that it executes uniform precession in the horizontal plane. The wheel has mass $m$ and moment of inertia about its center of mass $I_\text{cm}$. Its spin angular velocity is $\omega_s$. Neglect the mass of the shaft and the mass of the string. Find the angle $\beta$ that the string makes with the vertical. Assume that $\beta$ is so small that approximations like $\sin\beta \cong \beta$ are justified.
+  \begin{center}\includegraphics[width=0.2\textwidth]{ps11_2}\end{center}
+\end{problem}
+\begin{solution}
+\begin{center}
+\definecolor{qqwuqq}{rgb}{0,0.39,0}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2,0) rectangle (3.5,5);
+\fill[fill=black,fill opacity=0.1] (-3.64,4) -- (3.64,4) -- (3.64,11.28) -- (-3.64,11.28) -- cycle;
+\draw [shift={(0,4)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-90:0.6) arc (-90:-56.65:0.6) -- cycle;
+\fill[fill=black,fill opacity=0.1] (2.84,3.04) -- (3.32,3.04) -- (3.32,0.28) -- (2.84,0.28) -- cycle;
+\draw (-3.64,4)-- (3.64,4);
+\draw (3.64,4)-- (3.64,11.28);
+\draw (3.64,11.28)-- (-3.64,11.28);
+\draw (-3.64,11.28)-- (-3.64,4);
+\draw [dash pattern=on 3pt off 3pt] (0,4) -- (0,0);
+\draw (0,4)-- (1.54,1.66);
+\draw (1.54,1.66)-- (3.08,1.66);
+\draw (2.84,3.04)-- (3.32,3.04);
+\draw (3.32,3.04)-- (3.32,0.28);
+\draw (3.32,0.28)-- (2.84,0.28);
+\draw (2.84,0.28)-- (2.84,3.04);
+\draw [->,line width=1.6pt] (3.08,1.66) -- (3.08,0.8);
+\draw [->,line width=1.6pt] (1.54,1.66) -- (0.97,2.52);
+\fill [color=qqqqff] (1.54,1.66) circle (1.5pt);
+\fill [color=xdxdff] (3.08,1.66) circle (1.5pt);
+\draw[color=black] (0.8,3.22) node {$L$};
+\draw[color=black] (2.32,1.48) node {$l$};
+\draw[color=qqwuqq] (0.25,3.24) node {$\beta$};
+\draw[color=black] (3.06,0.56) node {$m g$};
+\draw[color=black] (1.48,2.18) node {$T$};
+\end{tikzpicture}\end{center}
+
+Since the procession is uniform, $F_y = T\sin\beta = \frac{m v^2}{r} = m (l + L\sin\beta) \Omega^2$; $$T\sin\beta = m(l + L\sin\beta)\Omega^2$$
+No acceleration in the $y$ direction means that $\vec F_y = T\cos\beta - mg = 0$.  Then $$T\cos\beta = m g$$
+Dividing, $$\tan\beta = \frac{l + L\sin\beta}{g} \Omega^2$$
+Since $\vec L = \vec r\times m \vec v$, $\vec L = (l + L\sin\beta)m(l + L\sin\beta)\Omega \hat k + I_\text{cm}\vec \omega_s = m(l + L\sin\beta)^2\Omega \hat k + I_\text{cm}\omega_s \hat r$.
+Since $\vec \tau = \frac{d \vec L}{d t}$, $\vec \tau = \frac{d}{d t}\left(m(l + L\sin\beta)^2\Omega \hat k + I_\text{cm}\omega_s \hat r\right) = I_\text{cm}\omega_s \frac{d \hat r}{d t} = I_\text{cm}\omega_s \dot\Theta \hat\Theta = I_\text{cm}\omega_s \Omega \hat\Theta$.
+Since $\vec \tau = \vec r\times \vec F$, $\vec \tau = -l\hat r \times T\cos\beta \hat k = -l T\cos\beta \hat\Theta$.
+Then, $$I_\text{cm}\omega_s \Omega = -l T\cos\beta$$
+Dividing, $-l = \frac{I_\text{cm}\omega_s \Omega}{m g}$, so $$\Omega = \frac{-l m g}{I_\text{cm}\omega_s}$$
+Then, pluggin in $\Omega$, $\tan\beta = \frac{l + L\sin\beta}{g} \cdot \frac{l^2 m^2 g^2}{I_\text{cm}^2\omega_s^2}$, so $$\tan\beta = (l + L\sin\beta)\frac{l^2 m^2 g}{I_\text{cm}^2 \omega_s^2}$$
+Collecting $\sin\beta$s, $$\tan\beta = \frac{g l^3 m^2}{I_\text{cm}^2 \omega_s^2 - g l^2 L m^2\cos\beta}$$
+Substituting $\sin\beta \approx \beta$ and $\cos\beta\approx 1$ (so $\tan\beta\approx \beta$), $$\beta \approx \frac{g l^3 m^2}{I_\text{cm}^2 \omega_s^2 - g l^2 L m^2} = \frac{l}{\frac{I_\text{cm}^2 \omega_s^2}{g l^2 m^2} - L}$$
+\end{solution}
+
+
+
+
+
+
+
+
+\begin{problem}{K\&K 7.5}
+  When an automobile rounds a curve at high speed, the loading (weight distribution) on the wheels is markedly changed. For sufficiently high speeds the loading on the inside wheel goes to zero, at which point the car starts to roll over. The tendency can be avoided by mounting a large spinning flywheel on the car.
+  \begin{enumerate}[(a)]
+    \item In what direction should the flywheel be mounted, and what should be the sense of rotation, to help equalize the loading? (Be sure that your method works for cars turning in either direction.)
+    \item Show that for a disk-shaped flywheel of mass $m_w$ and radius $R$, the requirement for equal loading is that the angular velocity of the flywheel, $\omega_s$, is related to the velocity of the car $v$ by $$\omega_s = 2v\frac{m_T L}{m_w r^2}$$ where $m_T$ is the total mass of the car and flywheel, and $L$ is the height of the center of mass of the car (including the flywheel) above the road. Assume the road is unbanked.
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item FIX In what direction should the flywheel be mounted, and what should be the sense of rotation, to help equalize the loading? (Be sure that your method works for cars turning in either direction.)
+  \item FIX Show that for a disk-shaped flywheel of mass $m_w$ and radius $R$, the requirement for equal loading is that the angular velocity of the flywheel, $\omega_s$, is related to the velocity of the car $v$ by $$\omega_s = 2v\frac{m_T L}{m_w r^2}$$ where $m_T$ is the total mass of the car and flywheel, and $L$ is the height of the center of mass of the car (including the flywheel) above the road. Assume the road is unbanked.
+\end{enumerate}
+\end{solution}
+
+
+
+
+
+\begin{problem}{K\&K 7.8}
+  A child's hoop of mass $m$ and radius $b$ rolls in a straight line with velocity $v$. Its top is given a light tap with a stick at right angles to the direction of motion. The impulse of the blow is $I$.
+  \begin{enumerate}[(a)]
+    \item Show that this results in a deflection of the line of rolling by an angle $\phi = I / m v$, assuming that the gyroscopic approximation holds and neglecting friction with the ground.
+    \item Show that the gyroscopic approximation is valid provided $F \ll mv^2 / b$, where $F$ is the peak applied force.
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item Take the center of mass frame of reference.  Then $\vec L = \vec  L_s = I_\text{cm}\vec \omega_s = \left(\int_0^b r^2 d m\right) \frac{v}{b} = m v b$.  Then, since ${\Delta \vec L} = b \vec I$, $m\Delta\vec v b = b \vec I$, so $m\Delta\vec v = \vec I$.  Then $\tan\phi = \Delta L / L = b I / (m v b) = I / m v$.
+  \item FIX Show that the gyroscopic approximation is valid provided $F \ll mv^2 / b$, where $F$ is the peak applied force.
+\end{enumerate}
+\end{solution}
+
+
+
+
+
+\begin{problem}{K\&K 8.1}
+  A uniform thin rod of length $L$ and mass $m$ is pivoted at one end. The pivot is attached to the top of a car accelerating at rate $A$.
+  \begin{center}\includegraphics[width=0.5\textwidth]{ps11_3}\end{center}
+  \begin{enumerate}[(a)]
+    \item What is the equilibrium value of the angle $\theta$ between the rod and the top of the car?
+    \item Suppose that the rod is displaced a small angle $\phi$ from equilibrium. What is its motion for small $\phi$?
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item Using the center of mass frame of reference, since the vector $-mA\hat i + - m g \hat j$ must point along the rod, $\theta = \arctan \frac{g}{A}$
+  \item The image is then \begin{center} \definecolor{qqwuqq}{rgb}{0,0.39,0}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.5cm,y=2.5cm]
+\clip(-0.5,-0.1) rectangle (1.5,1.5);
+\draw [shift={(-0.44,0)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (0:0.19) arc (0:36.87:0.19) -- cycle;
+\draw [shift={(0,0)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (36.87:0.46) arc (36.87:54.02:0.46) -- cycle;
+\draw (0,0)-- (1.06,1.46);
+\draw [->,line width=1.6pt] (0.53,0.73) -- (0.08,0.39);
+\draw [->,line width=1.6pt] (0,0) -- (0.45,0.33);
+\draw [dash pattern=on 1pt off 1pt] (0.53,0.73)-- (-0.44,0);
+\draw [dash pattern=on 1pt off 1pt] (1.44,1.08)-- (0,0);
+\draw[color=black] (0.59,0.95) node {$L$};
+\draw[color=black] (0.23,0.6) node {$g'$};
+\draw[color=black] (0.31,0.16) node {$N'$};
+\draw[color=qqwuqq] (-0.27,0.05) node {$\theta$};
+\draw[color=qqwuqq] (0.4,0.45) node {$\phi$};
+\end{tikzpicture} \end{center} Since $\tau_P = I_{P} \alpha_P$, $\tau_P = \left(\int_0^L \frac{m}{L} r^2 d r \right) \ddot \theta = \frac{mL^2}{3} \ddot \theta$.  Since $\tau_P = \vec r \times \vec F$, $\frac{mL^2}{3} \ddot \theta = \frac{L}{2} g'\sin\phi = \frac{L}{2}\sqrt{g^2 + A^2}\sin(\theta-\theta_0)$, so $$\ddot \phi = \frac{3sqrt{g^2+A^2}}{2 m L}\sin\phi.$$  For small $\phi$, $\sin\phi \approx \phi$, so $\phi = \phi_0 e^{\sqrt{\frac{3\sqrt{g^2+A^2}}{2 m L}}t}$.
+\end{enumerate}
+\end{solution}
+
+
+
+
+
+\begin{problem}{}
+  A particle of mass $m$ slides without friction on the inside of a cone. The axis of the cone is vertical and gravity points downward. The apex half-angle of the cone is $\beta$. The cone is rotating about the vertical axis with angular velocity $\vec \Omega = \Omega \hat k$.  The particle travels in a circular orbit with radius $r$ in the horizontal plane with a constant but unknown speed $(v_\theta)_\text{rot} = r\omega_\text{rot}$ as measured in the rotating reference frame.
+  \begin{enumerate}[(a)]
+    \item What is the direction of the Coriolis force $\vec F_{cor} = -2 m \vec \Omega \times \vec v_\text{rot}$?
+    \item What is the direction of the centrifugal force $\vec F_{cent} = -m \vec \Omega \times (\vec \Omega \times \vec r)$?
+    \item What is the angular velocity $\omega_\text{rot}$ of the particle in the rotating reference frame?
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+  \item The direction is $-\hat \Omega \times \hat v_\text{rot} = -\hat k \times (\pm \hat\theta) = \pm \hat r$.
+  \item The direction is $-\hat \Omega \times(\hat\Omega\times\hat r) = -\hat k \times\hat \theta = \hat r$.
+  \item In the intertial frame, $\vec v_{in} = r\omega_{in}\hat\theta$, and  What is the angular velocity $\omega_\text{rot}$ of the particle in the rotating reference frame?
+\end{enumerate}
+\end{solution}
+
+
+
+
+
+
+\begin{problem}{K\&K 8.10}
+  The acceleration due to gravity measured in an earthbound coordinate system is denoted by $g_0$. However, because of the earth's rotation, $g$ from the true acceleration due to gravity $g_0$. Assuming that the earth is perfectly round, with radius $R_e$ and angular velocity $\Omega_e$, find $g$ as a function of latitude $\lambda$. (Assuming the earth to be round is actually not justified; the contributions to the variation of $g$ due to the polar flattening is comparable to the effect calculated here.)
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+
+
+
+\begin{problem}{K\&K 8.12}
+  A pendulum is rigidly fixed to an axle held by two supports so that it can only swing in a plane perpendicular to the axle. The pendulum consists of a mass $m$ attached to a massless rod of length $l$. The supports are mounted on a platform which rotates with constant angular velocity $\Omega$. Find the pendulum's frequency assuming the amplitude is small.
+  \begin{center}\includegraphics[width=0.4\textwidth]{ps11_4}\end{center}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\end{document}

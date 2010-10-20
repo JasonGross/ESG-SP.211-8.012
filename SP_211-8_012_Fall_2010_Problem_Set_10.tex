@@ -1,0 +1,288 @@
+\documentclass{esg8012pset}
+\begin{preamble}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{enumerate}
+  \usepackage{graphicx}
+  \usepackage{hyperref}
+  %\usepackage{siunitx}
+  \providecommand{\uvec}[1]{{\hat{\bf{#1}}}}
+  \usepackage{pgf,tikz}
+  \usetikzlibrary{arrows}
+  \makeatletter
+  \newcommand{\interitemtext}[1]{%
+    \begin{list}{}
+     {\itemindent=0mm\labelsep=0mm
+     \labelwidth=0mm\leftmargin=0mm
+     \addtolength{\leftmargin}{-\@totalleftmargin}}
+      \item #1
+    \end{list}
+  }
+  \makeatother
+  \renewcommand{\d}{\,d}
+  \providecommand{\norm}[1]{\lVert#1\rVert}
+\end{preamble}
+
+\classname{Physics 8.012}
+\semester{Fall 2010}
+\problemsetnumber{10}
+\date{Month Day\csname latex@error\endcsname{Date not yet decided}}
+\makeatletter
+\duedate{Friday, Month Day \csname latex@error\endcsname{Date not yet decided}}
+\readingassignment{Kleppner and Kolenkow, \emph{An Introduction to Mechanics}, Chapter Nine}
+
+\begin{document}
+
+\noindent Problems: Chapter 9: 2, 5, 7, 9, 10, 12, and unnumbered
+
+\begin{problem}{K\&K 9.2}
+  A particle of mass $m = 50\text{ g}$ moves under an attractive central force of magnitude $F = 4r^3$ dynes. The angular momentum is equal to $1000\text{ g $\cdot$ cm$^2$ / s}$.
+  \begin{enumerate}[(a)]
+    \item Find the effective potential energy.
+    \item Indicate on a sketch of the effective potential the total energy for circular motion.
+    \item The radius of the particle's orbit varies between $r_0$ and $2r_0$. Find $r_0$ .
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item By conservation of energy, $E = \frac{1}{2} m \dot r^2 - \int F\cdot d r + \frac{1}{2}I\omega^2$.  Since $L = I\omega$, and $I = m r^2 = \frac{50\text{ g}}{2}r^2$, $\omega = \frac{1000\text{ g $\cdot$ cm$^2$ / s}}{\frac{50\text{ g}}{2}r^3} = \frac{400\text{ cm$^2$ / s}}{r^2}$.  Then $E = \frac{1}{2}m\dot r^2 + r^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{r^2}$.  The effective potential energy is $r^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{r^2}$.
+  \item Since 1 dyne is 1 g cm$^2$ / s$^2$, the plot is \par
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.25cm,y=0.25cm]
+\draw[->,color=black] (-15,0) -- (15,0);
+\foreach \x in {-15,-10,-5,5,10}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-2) -- (0,20);
+\foreach \y in {,5,10,15}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-15,-2) rectangle (15,20);
+\draw[smooth,samples=100,domain=-15.0:-1.0] plot(\x,{(\x/10)^4+2/(\x/10)^2/10});
+\draw[smooth,samples=100,domain=1.0:15.0] plot(\x,{(\x/10)^4+2/(\x/10)^2/10});
+\draw[color=black] (-17.46,9.98) node {$g$};
+\end{tikzpicture} \par The minima are the total energy of circular motion.
+  \item By conservation of energy, $E(r_0) = E(2r_0)$.  Then $\frac{1}{2}m\dot r^2|_{r_0} + r_0^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{r_0^2} = \frac{1}{2}m\dot r^2|_{2r_0} + (2r_0)^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{(2r_0)^2}$, so \begin{align*}
+  \frac{1}{2}m\dot r^2|_{r_0} - \frac{1}{2}m\dot r^2|_{2r_0} & =  15r_0^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{4r_0^2} - \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{r_0^2} \\
+  \frac{1}{2}m(\dot r^2|_{r_0} - \dot r^2|_{2r_0}) & =  15r_0^4\text{ dynes $\cdot$ cm} - \frac{600000\text{ g $\cdot$ cm$^4$ / s$^2$}}{4r_0^2} \\
+  m(\dot r^2|_{r_0} - \dot r^2|_{2r_0}) & =  30\left(r_0^4\text{ dynes $\cdot$ cm} - \frac{40000\text{ g $\cdot$ cm$^4$ / s$^2$}}{4r_0^2}\right) \\
+  \intertext{Since $r_0$ is a minimum and $2r_0$ is a maximum, $\dot r$ is 0 at both points.}
+  \frac{40000\text{ g $\cdot$ cm$^4$ / s$^2$}}{4r_0^2} & =  r_0^4\text{ dynes $\cdot$ cm} \\
+  40000\text{ g $\cdot$ cm$^4$ / s$^2$} & =  r_0^6\text{ dynes $\cdot$ cm} \\
+  r_0 & = \sqrt[6]{40000}\text{ cm}
+  \end{align*}
+\end{enumerate}
+\end{solution}
+
+
+
+
+\begin{problem}{K\&K 9.5}
+  A body of mass 2 kg lies on a frictionless table and is attached to one end of massless spring. The other end of the spring is held by a frictionless pivot. The spring produces a force of magnitude $3r$  newtons on the body, where $r$ is the distance in meters from the pivot to the body. The body moves in a circle and has total energy 12 J.
+  \begin{center}\includegraphics[width=0.33\textwidth]{ps10_1}\end{center}
+  \begin{enumerate}[(a)]
+    \item Find the radius of the orbit and the velocity of the body.
+    \item The body is struck by a sudden sharp blow, giving it instantaneous velocity of 1 m / s radially outward. Show the state of the system before and after the blow on a sketch of the energy diagram.
+    \item For the new orbit, find the maximum and minimum values of $r$.
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item The total energy is $\frac{1}{2}mv^2 + \frac{3}{2}r^2$.  Since $\frac{m v^2}{r} = 3r$, $m v^2 = 3r^2$.  Then the total energy is $3r^2$.  Then $r = 2$.  Then the velocity is $r\sqrt{\frac{3}{m}} = \sqrt{6}$.
+  \item The energy is $\frac{1}{2}m\dot r^2 + \frac{1}{2}I\omega^2 + \frac{3r^2}{2}$.  Since $I = mr^2$, and $L = I\omega$, $\frac{1}{2}I\omega^2 = \frac{L^2}{2I} = \frac{L^2}{2mr^2}$.  Since the forces are radial, there are no external torques, the angular momentum is constant.  Then $L = r_0m(r_0\omega_0) = 2\cdot 2 \cdot \sqrt{6} = 4\sqrt{6}$.  Thus, the initial energy is $\dot r^2 + \frac{L^2}{4r_0^2} + \frac{3r_0^2}{2} = \dot r^2 + 6 + 6 = \dot r^2 + 12$.  Before the body is struck, $\dot r = 0$, and after, $\dot r = 1$.  Since the effective potential energy is $\frac{L^2}{4r^2} + \frac{3r^2}{2}$, the plot is \par
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=0.45cm]
+\draw[->,color=black] (-1.1,0) -- (7,0);
+\foreach \x in {,5}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-1.1) -- (0,25);
+\foreach \y in {,5,10,15,20}
+\draw[shift={(0,\y)},color=black] (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-1.1,-1.1) rectangle (7,25);
+\draw[smooth,samples=100,domain=0.5:7.0] plot(\x,{9.8^2/(4*\x^2)+3*\x^2/2});
+\draw[smooth,samples=100,domain=-1.1:7.0] plot(\x,{9.8^2/(4*2^2)+3*2^2/2});
+\draw[smooth,samples=100,domain=-1.1:7.0] plot(\x,{9.8^2/(4*2^2)+3*2^2/2+1});
+\draw[color=black] (0.76,17.72) node {$U$};
+\draw[color=black] (5.02,13.98) node {$E_{0, \text{before}}$};
+\draw[color=black] (3.85,11) node {$E_{0, \text{after}}$};
+\end{tikzpicture}
+  \item The minimum and maximum values are where $\frac{L^2}{4r^2} + \frac{3r^2}{2} = 13$.  Since $L = 4\sqrt{6}$, $\frac{24}{r^2} + \frac{3r^2}{2} = 13$.  Then $3 r^4 - 26 r^2 + 48 = 0$.  Then $r = 2\sqrt{\frac{2}{3}}$ and $r = \sqrt{6}$.
+\end{enumerate}
+\end{solution}
+
+
+
+\begin{problem}{K\&K 9.7}
+  A rocket is in an elliptic orbit around the earth. To put it in escape orbit, its engine is briefly fired, changing the rocket's velocity by $\Delta \vec v$. Where in the orbit, and in what direction, should the firing occur to attain escape with a minimum value of $\Delta \vec v$?
+\end{problem}
+\begin{solution}
+The equation of energy is $E = \frac{1}{2} m\dot r^2 + \frac{1}{2}m v_{\bot}^2 - G\frac{m m_e}{r}$.  Then the problem is change the energy from $E = E_0 = \frac{1}{2} m(\vec v)^2 - G\frac{m m_e}{r_0}$ to zero at $r =\infty$.  Once given the blow, $E_f = 0 = \frac{1}{2} m(\vec v + \Delta \vec v)^2 - G\frac{m m_e}{r_0}$.  Then
+\begin{align*}
+E_f - E_0 & = \frac{1}{2} m(\vec v + \Delta \vec v)^2 - G\frac{m m_e}{r_0} -   \left(\frac{1}{2} m(\vec v)^2 - G\frac{m m_e}{r_0}\right) \\
+ & = \frac{1}{2} m(v^2 + 2\vec v\cdot \Delta \vec v + \Delta v^2) - G\frac{m m_e}{r_0} - \frac{1}{2} mv^2 + G\frac{m m_e}{r_0} \\
+ & = \frac{1}{2} m(2\vec v\cdot \Delta \vec v + \Delta v^2)
+\end{align*}
+Since the change in energy is constant, and we want to minimize $\Delta \vec v$, $\Delta \vec v$ should be parallel to $\vec v$, and $\vec v$ should be largest.  This corresponds to the perigee (the closest point).
+
+\begin{problem}{K\&K 9.9}
+  Halley's comet is in an elliptic orbit about the sun. The eccentricity of the orbit is $\varepsilon = 0.967$ and the period is $T = 76$ y. The mass of the sun is $m_s = 1.99 \cdot 10^{30}$ kg.  The mass of Halley's comet is negligible compared to the sun.
+  \begin{enumerate}[(a)]
+    \item Using this data, determine the distance of Halley's comet at closest approach to the sun, perihelion, and furthest distance from the sun, aphelion.
+    \item What is the speed of Halley's comet when it is closest to the sun?
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+I first solve the two-body problem.
+
+% \input{Two-Body_Problem}
+% 
+% 
+% FIX
+
+
+\begin{enumerate}[(a)]
+  \item Using this data, determine the distance of Halley's comet at closest approach to the sun, perihelion, and furthest distance from the sun, aphelion.
+  \item What is the speed of Halley's comet when it is closest to the sun?
+\end{enumerate}
+\end{solution}
+
+
+\begin{problem}{K\&K 9.10}
+  A satellite of mass $m_s$ is in a circular orbit about the earth. The radius of the orbit is $r_0$ and the mass of the earth is $m_e$.
+  \begin{enumerate}[(a)]
+    \item Find the total mechanical energy of the satellite.
+    \item Now suppose that the satellite moves in the extreme upper atmosphere of the earth where it is retarded by a constant feeble friction force $f$. The satellite will spiral slowly to the earth. Since the friction force is weak, the change in radius will be very slow. We can therefore assume that at any given instant the satellite is in a circular orbit of average radius $r$. Find the approximate change in radius per revolution of the satellite, $\Delta r$.
+    \item Find the approximate change in kinetic energy per revolution of the satellite, $\Delta K$.
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item The total energy is $E = \frac12 m_s \dot r^2 + \frac12 I\omega^2 - G\frac{m_e m_s}{r}$.  Since $r = r_0$ is constant, and $-G \frac{m_e m_s}{r^2} = m_s (\ddot r - r\dot\theta^2) = - m_s r \omega^2$, $E = \frac12 I G \frac{m_e}{r_0^3} - G\frac{m_e m_s}{r_0}$.   Since $I = m_s r_0^2$, $E = \frac12 G \frac{m_e m_s}{r_0} - G\frac{m_e m_s}{r_0} = -G\frac{m_e m_s}{2r_0}$.
+  \item The work done by the force is $\int f \cdot d x$.  Since the force is always opposite the direction of motion, the work done is $2\pi r f$.  Then the change in total energy is $-2\pi r f$.  Then the change in radius is that given by $\Delta E = -2\pi r_i f = -G\frac{m_e m_s}{2r_f} + G\frac{m_e m_s}{2r_i}$, so $G\frac{m_e m_s}{2r_f} = G\frac{m_e m_s}{2r_i} + 2\pi r_i f$, so $\frac{1}{r_f} = \frac{1}{r_i} + \frac{4\pi f}{G m_e m_s} r_i = \frac{1 + \frac{4\pi f}{G m_e m_s} r_i^2}{r_i}$.  Then $r_f = \frac{r_i}{1 + \frac{4\pi f}{G m_e m_s} r_i^2}$.  Then $r_f - r_i = \frac{r_i}{1 + \frac{4\pi f}{G m_e m_s} r_i^2} - r_i = \frac{r_i\left(1-\left(1 + \frac{4\pi f}{G m_e m_s} r_i^2\right)\right)}{1 + \frac{4\pi f}{G m_e m_s} r_i^2} = -\frac{r_i\left(\frac{4\pi f}{G m_e m_s} r_i^2\right)}{1 + \frac{4\pi f}{G m_e m_s} r_i^2} = -\frac{r_i^2(4\pi f)}{\frac{G m_e m_s}{r_i} + 4\pi f r_i}$
+  \item The kinetic energy is $K(r) = G \frac{m_e m_s}{r}$.  Then \begin{align*}
+ \Delta K & = K(r_f) - K(r_i) \\
+  & = G \frac{m_e m_s}{\frac{r_i}{1 + \frac{4\pi f}{G m_e m_s} r_i^2}} - G \frac{m_e m_s}{r_i} \\
+  & = G m_e m_s \left( \frac{1}{\frac{r_i}{1 + \frac{4\pi f}{G m_e m_s} r_i^2}} - \frac{1}{r_i}\right) \\
+  & = G m_e m_s \left( \frac{1 + \frac{4\pi f}{G m_e m_s} r_i^2}{r_i} - \frac{1}{r_i}\right) \\
+  & = G m_e m_s\cdot \frac{\frac{4\pi f}{G m_e m_s} r_i^2}{r_i} \\
+  & = 4\pi f r
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+
+\begin{problem}{K\&K 9.12}
+  A space vehicle is in a circular orbit about the earth. The mass of the vehicle is $m_s = 3.00 \cdot 10^3$ kg and the radius of the orbit is $2R_e = 1.28 \cdot 10^4$ km. It is desired to transfer the vehicle to a circular orbit of radius $4R_e$.
+  \begin{center}\includegraphics[width=0.33\textwidth]{ps10_2}\end{center}
+  \begin{enumerate}[(a)]
+    \item What is the minimum energy expenditure required for the transfer?
+    \item An efficient way to accomplish the transfer is to use a semielliptical orbit from point $A$ from the inner circular orbit at to point $B$ at the outer circular orbit (known as a Hohmann transfer orbit). What velocity changes are required at the points of intersection, $A$ and $B$?
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item In a circular orbit of radius $R$, the velocity is such that $-G\frac{m_e m_s}{R^2} = -\frac{m_s v^2}{R}$.  Then $v = \pm \sqrt{G\frac{m_e}{R}}$.  The energy of the smaller orbit is $\frac{1}{2} m_s G\frac{m_e}{2R_e} - G\frac{m_e m_s}{2R_e} = -G\frac{m_e m_s}{4R_e}$.  The energy of the larger orbit is $\frac{1}{2} m_s G\frac{m_e}{4R_e} - G\frac{m_e m_s}{4R_e} = -G\frac{m_e m_s}{8R_e}$.  Then the change in energy is \begin{align*}
+ \Delta E & = -G\frac{m_e m_s}{8R_e} + G\frac{m_e m_s}{4R_e} \\
+ & = G\frac{m_e m_s}{8R_e} \\
+\end{align*}
+  \item If a body has velocity $v_a$ at radius $r_a$, the apogee, and velocity $v_p$ at radius $r_p$, the perigee, then $r_a v_a = r_p v_p$ by conservation of angular momentum, and $E = \frac{1}{2} m_s v_*^2 - G\frac{m_s m_e}{r_*}$.  Then \begin{align*}
+ \frac{1}{2} m_s v_a^2 - G\frac{m_s m_e}{r_a} & = \frac{1}{2} m_s v_p^2 - G\frac{m_s m_e}{r_p} \\
+ \frac{1}{2} m_s \left(\frac{r_p v_p}{r_a}\right)^2 - G\frac{m_s m_e}{r_a} & = \frac{1}{2} m_s v_p^2 - G\frac{m_s m_e}{r_p} \\
+ \frac{r_p^2}{r_a^2} v_p^2 - 2G\frac{m_e}{r_a} & = v_p^2 - 2G\frac{m_e}{r_p} \\
+ \left(\frac{r_p^2}{r_a^2} - 1\right) v_p^2 & = 2Gm_e\left(\frac{1}{r_a} - \frac{1}{r_p}\right) \\
+ \frac{r_p^2 - r_a^2}{r_a^2} v_p^2  & = 2Gm_e\left(\frac{1}{r_a} - \frac{1}{r_p}\right) \\
+ v_p  & = \pm\sqrt{2Gm_e\left(\frac{r_p - r_a}{r_a r_p}\right)\frac{r_a^2}{r_p^2 - r_a^2}} \\
+   & = \pm\sqrt{2Gm_e\frac{r_a}{r_p(r_p + r_a)}}
+\end{align*}  Since $r_p = 2R_e$ and $r_a = 4R_e$, $v_p = \pm\sqrt{2Gm_e\frac{4R_e}{12R_e^2}} = \pm\sqrt{\frac{2G m_e}{3R_e}}$.  Since the initial velocity is $\pm \sqrt{G\frac{m_e}{2R_e}}$, the change in velocity is $\sqrt{G\frac{m_e}{R_e}}\left(\sqrt{\frac{2}{3}} - \sqrt{\frac{1}{2}}\right)$. \par
+Similarly, \begin{align*}
+ \frac{1}{2} m_s v_p^2 - G\frac{m_s m_e}{r_p} & = \frac{1}{2} m_s v_a^2 - G\frac{m_s m_e}{r_a} \\
+ \frac{1}{2} m_s \left(\frac{r_a v_a}{r_p}\right)^2 - G\frac{m_s m_e}{r_p} & = \frac{1}{2} m_s v_a^2 - G\frac{m_s m_e}{r_a} \\
+ \frac{r_a^2}{r_p^2} v_a^2 - 2G\frac{m_e}{r_p} & = v_a^2 - 2G\frac{m_e}{r_a} \\
+ \left(\frac{r_a^2}{r_p^2} - 1\right) v_a^2 & = 2Gm_e\left(\frac{1}{r_p} - \frac{1}{r_a}\right) \\
+ \frac{r_a^2 - r_p^2}{r_a^2} v_a^2  & = 2Gm_e\left(\frac{1}{r_p} - \frac{1}{r_a}\right) \\
+ v_a  & = \pm\sqrt{2Gm_e\left(\frac{r_a - r_p}{r_p r_a}\right)\frac{r_p^2}{r_a^2 - r_p^2}} \\
+   & = \pm\sqrt{2Gm_e\frac{r_p}{r_a(r_a + r_p)}}
+\end{align*}  Since $r_p = 2R_e$ and $r_a = 4R_e$, $v_a = \pm\sqrt{2Gm_e\frac{2R_e}{24R_e^2}} = \pm\sqrt{\frac{G m_e}{12R_e}}$.  Since the final velocity is $\pm \sqrt{G\frac{m_e}{4R_e}}$, the change in velocity is $\sqrt{G\frac{m_e}{4R_e}} - \sqrt{\frac{G m_e}{12R_e}} = \sqrt{G\frac{m_e}{R_e}}\left(\frac{1}{2} - \frac{1}{2\sqrt{3}}\right) = \sqrt{G\frac{m_e}{R_e}}\cdot \frac{3 - \sqrt{3}}{6}$.
+\end{enumerate}
+\end{solution}
+
+
+\begin{problem}{The Motion of SO-2 around the Black Hole at the Galactic Center}
+  \subsection{Background}
+    The UCLA Galactic Center Group, headed by Dr. Andrea Ghez, reported the following data, (see \url{http://www.astro.ucla.edu/\~ghezgroup/gc/} for information about the research group, and \url{http://www.astro.ucla.edu/\~ghezgroup/gc/images/2004orbit_animfull_sm.gif} for an animation of the orbits about the galactic center), for the orbits of eight stars within $0.8'' \times 0.8''$ of the galactic center.
+    \begin{center}\includegraphics[width=0.75\textwidth]{ps10_3}\end{center}
+    The orbits of the stars are shown in \hyperref[fig:orbits]{Figure 1}.
+    
+    \begin{figure}[!h] \label{fig:orbits}
+      \begin{center}\includegraphics[width=0.75\textwidth]{ps10_4}\end{center}
+    \end{figure}
+    \refstepcounter{figure}
+    
+    A standard astronomical unit is the parsec. One parsec is the distance at which there is one arcsecond = 1/3600 deg angular separation between two objects that are separated by the distance of one astronomical unit, 1 AU${} = 1.50 \cdot 10^{11}$ m which is the mean distance between the earth and sun. One astronomical unit is roughly equivalent to eight light minutes,  1 AU${} = 8.3$ lmin.  One parsec is equal to 3.26 light years, where one light year is the distance that light travels in one earth year, 1 pc${} = {}$3.26 ly${} = 2.06 \cdot 10^5$ AU where 1 ly${} = 9.46 \cdot 10^{15}$ m. The orbital data for the star SO-2, S0-16, and S0-19 are as follows\footnote{A.M.Ghez, et al., Stellar Orbits Around Galactic Center Black Hole, preprint arXiv:astro-ph/0306130v1, 5 June, 2003.}:
+    \begin{center}
+      \begin{tabular}{|l|l|l|l|l|l|}
+        \hline Star  & Period          & Eccentricity  & Semi-major axis     & Periapse (AU) & Apoapse (AU) \\
+                     & (yrs)           &               & ($10^{-3}$ arc sec) &               &              \\
+        \hline S0-2  & 15.2            & 0.8763        & 120.7 (4.5)         & 119.5 (3.9)   & 1812 (73)    \\
+                     & (0.68 / 0.76)   & (0.0063)      &                     &               &              \\
+        \hline S0-16 & 29.9 (6.8 / 13) & 0.943 (0.019) & 191 (24)            & 87 (17)       & 2970 (560)   \\
+        \hline S0-19 & 71 (35 / 11000) & 0.889 (0.065) & 340 (220)           & 301 (41)      & 5100 (3600)  \\ \hline
+      \end{tabular}
+    \end{center}
+    The period of S0-2 satisfies Kepler's Third Law given by
+    $$T^2 = \frac{4\pi^2 a^3}{G(m_1 + m_2)}$$
+    where $m_1$ is the mass of S0-2, $m_2$ is the mass of the black hole, and a is the semi-major axis of the elliptic orbit of S0-2.
+
+    The orbit data is given in terms of properties of the elliptic orbit. Consider the ellipse shown in the figure below.
+    \begin{figure}[!h] 
+      \begin{center}\includegraphics[width=0.6\textwidth]{ps10_5}\end{center}
+      \caption{elliptic orbit} \label{fig:ellipse}
+    \end{figure}
+    In \autoref{fig:ellipse}, let $a$ denote the semi-major axis, $b$ denote the semi-minor axis, and $x_0$ denote the location of the center of the ellipse from one focal point $P$.
+
+    The orbit equation for the system is given by
+    $$r = \frac{r_0}{1 - \varepsilon\cos\theta},$$
+    where $r_0$ and the eccentricity $\varepsilon$ are two constants.
+
+    The constant $r_0$ can be found by considering the lowest energy circular orbit which has radius
+    $$r_0 = \frac{L^2}{\mu G m_1 m_2,}$$
+    where $\mu = \frac{m_1 m_2}{m_1 + m_2}$ is the reduced mass. Note that S0-2 is in a much higher energy orbit.
+
+    The energy of this circular orbit is
+    $$E_0 = -\frac{G m_1 m_2}{2r_0}.$$
+    The eccentricity of the elliptic orbit of S0-2 is then
+    $$\varepsilon = (1 - E / E_0)^{1/2} = \left(1 + \frac{2 E L^2}{\mu(G m_1 m_2)^2}\right)^{1/2}$$
+    The semi major axis $a$ is given by
+    $$a = \frac{r_p + r_a}{2}$$
+    where the distance of furthest approach is denoted by $r_a$, and is called apoapse for the orbit about the galactic center), and the distance of nearest approach is denoted by $r_p$, and is called periapse for the orbit about the galactic center.
+    \begin{figure}[!h]
+      \begin{center}\includegraphics[width=0.75\textwidth]{ps10_6}\end{center}
+      \caption{Nearest and furthest approach}
+    \end{figure}
+
+  \subsection{Questions:}
+    \begin{enumerate}[(a)]
+      \item Using the results in the data table for the star S0-2, find the length of the semimajor axis.
+      \item Using the results in the data table for the star S0-2, find the mass of the black hole that the star S0-2 is orbiting. How many solar masses does this correspond to?  Use $G = 6.67 \cdot 10^{-11}$ N m$^2$ kg$^{-2}$ and the mass of the sun is given by $m_s = 1.99 \cdot 10^{30}$ kg.
+      \item Use the equations for constant energy and angular momentum to find the velocity at periapse and apoapse.
+      \item Assume that the S0-2 orbit is perpendicular to our line of sight. With this assumption, how far away is S0-2 from the earth?
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+  \item Since $a = \frac{r_p + r_a}{2}$, the semimajor axis is of length $a = \frac{119.5 + 1812}{2} = 965.75$.
+  \item Since $T^2 = \frac{4\pi^2 a^3}{G(m_1 + m_2)}$, $m_1 + m_2 = \frac{4\pi^2 a^3}{T^2 G}$.  Since $T = 15.2$ yrs, $m_1 + m_2 = 3898668$ solar masses ($7.8 \cdot 10^{36}$ kg).
+  \item The condition for conservation of energy is $E = \frac12 m_{S0-2} v_*^2 - G\frac{m_{S0-2} m}{r_*}$, and for angular momentum, $r_a v_a = r_p v_p$.  Then \begin{align*}
+ m_{S0-2} v_a^2 - 2G\frac{m_{S0-2} m}{r_a} & = m_{S0-2} \frac{v_a^2 r_a^2}{r_p^2} - 2G\frac{m_{S0-2} m}{r_p} \\
+ v_a^2 - 2G\frac{m}{r_a} & = \frac{v_a^2 r_a^2}{r_p^2} - 2G\frac{m}{r_p} \\
+ 2G\frac{m}{r_p} - 2G\frac{m}{r_a} & = \frac{v_a^2 r_a^2}{r_p^2} - v_a^2 \\
+ 2G m \left(\frac{1}{r_p} - \frac{1}{r_a}\right) & = v_a^2\frac{r_a^2 - r_p^2}{r_p^2} \\
+ v_a^2 & = 2G m \frac{\frac{1}{r_p} - \frac{1}{r_a}}{\frac{r_a^2 - r_p^2}{r_p^2}} \\
+  & = 2G m \frac{(r_a - r_p) r_p^2}{r_a r_p(r_a^2 - r_p^2)} \\
+  & = 2G m \frac{r_p}{r_a (r_a + r_p)} \\
+ v_a & = \sqrt{2G m \frac{r_p}{r_a (r_a + r_p)}} \\
+ v_p & = \sqrt{2G m \frac{r_a}{r_p (r_a + r_p)}}
+\end{align*}
+  Then $v_a = 486323$ m / s and $v_p = 7.3742\cdot 10^6$ m / s.
+  \item Since $a \approx \theta d$, $d \approx \frac{965.75\text{ AU}}{120.7\cdot 10^{-3}\text{ arc sec}}\approx 1.65037\cdot 10^9$ AU.
+\end{enumerate}
+\end{solution}
+\end{document}

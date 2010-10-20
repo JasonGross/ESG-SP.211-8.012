@@ -21,9 +21,10 @@
 %% LaTeX version 1999/12/01 or later.
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{esg8012pset}
- [2010/09/07 v0.1 ESG PSet Template]
+ [2010/10/08 v0.1b ESG PSet Template]
 \LoadClass[notitlepage,11pt,twoside,letterpaper]{article}
 \RequirePackage{fancyhdr}
+\RequirePackage[T1]{fontenc}
 \RequirePackage{lastpage}
 \RequirePackage{xifthen}
 \RequirePackage{verbatim}
@@ -121,6 +122,8 @@
 \fancyfoot{}
 \cfoot{\thepage\space of \pageref{LastPage}}
 
+\let\@seccntformat\@gobble
+
 \AtBeginDocument{
   \begingroup
     \ifthenelse{\boolean{esg8012pset@problems}}{%
@@ -137,7 +140,7 @@
   \begingroup
     \bf
     \begin{center}%
-      {\noindent  MASSACHUSETTS INSTITUTE OF TECHNOLOGY \par}%
+      {\noindent  \textsc{Massachusetts Institute of Technology} \par}%
       {\noindent  Experimental Study Group \par}%
     \end{center}%
     {\noindent  \@classname, \@semester \par}%
@@ -168,15 +171,13 @@
 \newcommand*{\semester}[1]{\gdef\@semester{#1}}
 \newcommand*{\classname}[1]{\gdef\@classname{#1}}
 \newcommand*{\readingassignment}[1]{\gdef\@readingassignment{#1}}
-\newcounter{esg8012pset@problem@counter}
 \newenvironment{problem}[2][\relax]{%
   \ifthenelse{\equal{#1}{\relax}}{%
-    \stepcounter{esg8012pset@problem@counter}%
-    \writetoall{\string\section*{Problem \arabic{esg8012pset@problem@counter}: #2}}%
+    \writetoall{\string\section{Problem \string\thesection: #2}}%
   }{%
     \writetoall{\string\section*{Problem #1: #2}}%
   }%
-  \writetosolutions{\string\subsection*{Problem}}%
+  \writetosolutions{\string\subsection{Problem}}%
   \begingroup% Lets Keep the Changes Local
     \@bsphack
     \immediate\openout\esgpset@tempout\esgpset@tempfilename
@@ -187,7 +188,7 @@
   \input{\esgpset@tempfilename}%
 }
 \newenvironment{solution}{%
-  \writetosolutions{\string\subsection*{Solution}}%
+  \writetosolutions{\string\subsection{Solution}}%
   \begingroup% Lets Keep the Changes Local
     \@bsphack
     \let\do\@makeother\dospecials\catcode`\^^M\active
