@@ -1,6 +1,7 @@
 \documentclass[solutions]{esg8012pset} 
   \usepackage{amsmath}
   \usepackage{amssymb}
+  \usepackage{amsthm}
   \usepackage{enumerate}
   \usepackage{graphicx}
   \usepackage{hyperref}
@@ -8,6 +9,7 @@
   \providecommand{\uvec}[1]{{\hat{\bf{#1}}}}
   \usepackage{pgf,tikz}
   \usetikzlibrary{arrows}
+  \usepackage{wasysym}
   \makeatletter
   \newcommand{\interitemtext}[1]{%
     \begin{list}{}
@@ -20,11 +22,13 @@
   \makeatother
   \renewcommand{\d}{\,d}
   \providecommand{\norm}[1]{\lVert#1\rVert}
+  \newtheorem{thm}{Theorem}[section]
+  \newtheorem*{thm*}{Theorem}
 \classname{Physics 8.012} 
 \semester{Fall 2010} 
-\problemsetnumber{8} 
-\date{Month Day\csname latex@error\endcsname {Date not yet decided}} 
-\duedate{Friday, Month Day \csname latex@error\endcsname {Date not yet decided}} 
+\problemsetnumber{9} 
+\date{\today } 
+\duedate{Friday, November 19} 
 \readingassignment{Kleppner and Kolenkow, \emph {An Introduction to Mechanics}, Chapter Six} 
 \begin{document}
 \section{Problem \thesection: K\&K 6.14}

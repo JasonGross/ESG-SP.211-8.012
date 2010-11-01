@@ -23,17 +23,17 @@
 \classname{Physics 8.012} 
 \semester{Fall 2010} 
 \problemsetnumber{8} 
-\date{Month Day\csname latex@error\endcsname {Date not yet decided}} 
-\duedate{Friday, Month Day \csname latex@error\endcsname {Date not yet decided}} 
+\date{\today } 
+\duedate{Friday, November 12} 
 \readingassignment{Kleppner and Kolenkow, \emph {An Introduction to Mechanics}, Chapter Six} 
 \begin{document}
-\section*{Problem 1: K\&K 6.1}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.1}
+\subsection{Problem}
   \begin{enumerate}[(a)]
     \item Show that if the total linear momentum of a system of particles is zero, the angular momentum of the system is the same about all origins. Explain how you may apply this result involving an elastic collision of two rigid bodies.
     \item Show that if the total force on a system of particles is zero, the torque on the system is the same about all origins. Explain how you can use this result for static equilibrium problems.
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[(a)]
     \item Let $I$ be the (possibly (uncountably) infinite) index set of particles.  Assume that $\displaystyle \sum_{\alpha\in I} m_\alpha \vec v_\alpha = 0$.  Then $\vec L_{s\alpha} = \vec r_{s\alpha} \times m_\alpha \vec v_\alpha$, so $$\displaystyle \vec L_{s} = \sum_{\alpha\in I}\vec r_{s\alpha} \times m_\alpha \vec v_\alpha.$$  Similarly, $$\displaystyle \vec L_{s'} = \sum_{\alpha\in I}\vec r_{s'\alpha} \times m_\alpha \vec v_\alpha.$$  But then \begin{align*}
     \vec L_{s'} & = \sum_{\alpha\in I}(\vec r_{s\alpha} + \vec r_{s's}) \times m_\alpha \vec v_\alpha \\
@@ -50,11 +50,11 @@
     \end{align*} \par
     This may be applied in the center of mass reference frame. FIX (Explain how you can use this result for static equilibrium problems.)
   \end{enumerate}
-\section*{Problem 2: K\&K 6.2}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.2}
+\subsection{Problem}
   A drum of mass $m_A$ and radius $a$ rotates freely with initial angular velocity $\omega_{A,0}$. A second drum with mass $m_B$ and radius $b > a$ is mounted on the same axle and is at rest, although it is free to rotate. A thin layer of sand with mass $m_S$ is distributed on the inner surface of the smaller drum. At $t = 0$, small perforations in the inner drum are opened. The sand starts to fly out at a constant rate $\lambda$ and sticks to the outer drum. Find the subsequent angular velocities of the two drums $\omega_A$ and $\omega_B$. Ignore the transit time of the sand.
   \begin{center}\includegraphics[width=0.2\textwidth]{ps08_1}\end{center}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{center}
   \definecolor{qqwuqq}{rgb}{0,0.39,0}
   \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
@@ -86,11 +86,11 @@
     & = \omega_A\frac{a^2}{b^2}\left(1 - \frac{m_B}{m_B + \lambda t}\right) + \omega_{B,0}\frac{m_B}{m_B + \lambda t} \\
     & = \omega_A\frac{a^2}{b^2}\cdot \frac{\lambda t}{m_B + \lambda t} + \omega_{B,0}\frac{m_B}{m_B + \lambda t}
   \end{align*}
-\section*{Problem 3: K\&K 6.4}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.4}
+\subsection{Problem}
   A spaceship is sent to investigate a planet of mass $m_p$ and radius $r_p$. While hanging motionless in space at a distance $5 r_p$ from the center of the planet, the ship fires an instrument package with speed $v_0$. The package has mass $m_i$ which is much smaller than the mass of the spacecraft. The package is launched at an angle $\theta$ with respect to a radial line between the center of the planet and the spacecraft. For what angle $\theta$ will the package just graze the surface of the planet.
   \begin{center}\includegraphics[width=0.4\textwidth]{ps08_2}\end{center}
-\subsection*{Solution}
+\subsection{Solution}
   Assume that $m_p \gg m_i$.  Since there are no external forces, mechanical energy is constant.  Since there are no external torques and the forces are along the line between the planet and the instrument package, the angular momentum about the center of the planet is constant.  If it just glances the planet, then the velocity is perpendicular to the radius, and the distance is $r_p$.  Then
   \begin{align*}
     E_0 = K_0 + U_0 & = \frac{1}{2}m_i v_0^2 - G\frac{m_i m_p}{5 r_p} \\
@@ -136,11 +136,11 @@
   %\end{align*} FIX
   %
   %
-\section*{Problem 4: K\&K 6.6}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.6}
+\subsection{Problem}
   A person of mass $m$ is standing on a railroad car which is rounding an unbanked turn of radius $R$ at a speed $v$. His center of mass is at a height of $L$ above the car midway between his feet which are separated by a distance of $d$. The man is facing the direction of motion. What is the magnitude of the normal forces on each foot?
   \begin{center}\includegraphics[width=0.4\textwidth]{ps08_3}\end{center}
-\subsection*{Solution}
+\subsection{Solution}
   The centripetal force on the person is $\frac{m v^2}{R + \frac{d}{2}}$.  If $F_1$ and $F_2$ are the forces of friction on the inward and outward foot, respectively, then $$F_1 + F_2 = \frac{m v^2}{R + \frac{d}{2}}$$ and $$m g = N_1 + N_2.$$  Let $\theta$ denote the angle from the vertical to a leg.  Then $\tan\theta = \frac{d}{2L}$.  Finally, since the person is not rotating about the center of mass, $(N_1 - N_2)\sqrt{\frac{d^2}{4} + L^2}\sin\theta + (F_1 + F_2)\sqrt{\frac{d^2}{4} + L^2}\cos\theta = 0$, so $((N_1 - N_2)\sin\theta + (F_1 + F_2)\cos\theta)\sqrt{\frac{d^2}{4} + L^2} = 0$, so $(N_1 - N_2)\tan\theta + (F_1 + F_2) = 0$.  Plugging in $\tan\theta$, $$(N_1 - N_2)\frac{d}{2L} + (F_1 + F_2) = 0.$$  Then \begin{align*}
   0 & = (N_1 - N_2)\frac{d}{2L} + \frac{m v^2}{R + \frac{d}{2}} \\
   N_2 - N_1 & = \frac{m 2L v^2}{d R + \frac{d^2}{2}} \\
@@ -153,13 +153,13 @@
   N_1 & = \frac{m g}{2} - \frac{2 m L v^2}{2 d R + d^2} \\
   N_2 & = \frac{m g}{2} + \frac{2 m L v^2}{2 d R + d^2}
   \end{align*}
-\section*{Problem 5: K\&K 6.7}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.7}
+\subsection{Problem}
   \begin{enumerate}[(a)]
     \item Find the moment of inertia of a thin sheet of metal of mass $m$ in the shape of an isosceles right triangle about an axis that passes through one vertex of the sheet, perpendicular to the plane of the sheet. The length of the two equal sides is $s$.
     \item Find the moment of inertia of a thin sheet of metal of mass $m$ in the shape of an isosceles right triangle about an axis that passes through the same vertex of the sheet, but aligned along one side of length $s$ (in the plane of the sheet).
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[(a)]
     \item Suppose the triangle is rotating with angular velocity $\omega$.  Then \begin{align*}
       \vec L & = \lim_{\Delta m\to 0} \sum_{i} \vec r_i \times \Delta m_i \vec v_i \\
@@ -198,14 +198,13 @@
     I & = m s^3 \cdot \frac{4-3s}{12}
     \end{align*}
   \end{enumerate}
-\section*{Problem 6: K\&K 6.10}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.10}
+\subsection{Problem}
   A cylinder of mass $m$ and radius $R$ is rotated in a V groove with constant angular velocity $\omega_{0}$.
 The coefficient of friction between the cylinder and the surface is $\mu$. What external torque must be applied to the cylinder to keep it rolling?
   \begin{center}\includegraphics[width=0.3\textwidth]{ps08_4}\end{center}
-\subsection*{Solution}
+\subsection{Solution}
   \newcommand{\degre}{\ensuremath{^\circ}}
-  \begin{document}
   \definecolor{uququq}{rgb}{0.25,0.25,0.25}
   \definecolor{zzttqq}{rgb}{0.6,0.2,0}
   \definecolor{qqwuqq}{rgb}{0,0.39,0}
@@ -235,11 +234,11 @@ The coefficient of friction between the cylinder and the surface is $\mu$. What 
   \end{tikzpicture}
 
   The normal force is $F_N = F_g \cos 45^{\circ} = \frac{m g}{\sqrt{2}}$.  Then the total frictional force is $\sqrt{2}\mu m g$, so the torque must be $R m g \sqrt{2} \mu$.
-\section*{Problem 7: K\&K 6.13}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 6.13}
+\subsection{Problem}
   A body of particle of mass $m$ (treat it as a point like particle) is attached to a post of radius $R$ by a string. Initially it is a distance $r_0$ from the center of the post and it is moving tangentially with a speed $v_0$. In case (a) the string passes through a hole in the center of the post at the top. The string is gradually shortened by drawing it through the hole. In case (b) the string wraps around the outside of the post. What quantities remain constant in each case? Find the final speed of the body when it hits the post for each case.
   \begin{center}\includegraphics[width=0.3\textwidth]{ps08_5}\end{center}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[(a)]
     \item Angular momentum remains constant because the force is only in the radial direction.  Then \begin{align*}
       \vec L_0 & = \vec r_0 \times m \vec v_0 \\

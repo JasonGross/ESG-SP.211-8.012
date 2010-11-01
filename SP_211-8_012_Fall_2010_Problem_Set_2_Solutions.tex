@@ -13,23 +13,23 @@
 \duedate{Friday, September 24} 
 \readingassignment{Kleppner and Kolenkow, \emph {An Introduction to Mechanics}, Chapter Two} 
 \begin{document}
-\section*{Problem 1: K\&K 2.2}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 2.2}
+\subsection{Problem}
   The two blocks shown in the figure are connected by a string of negligible mass. If the system is released from rest, find how far the block of mass $m_1$ slides in time $t$. Neglect friction.
   \begin{center}\includegraphics[width=0.35\textwidth]{ps02_1}\end{center}
-\subsection*{Solution}
+\subsection{Solution}
   The system can be treated as a single block of mass $m_1 + m_2$, with a force due to gravity of $m_2 g$.  The acceleration is then $\frac{m_2 g}{m_1 + m_2}$, so the distance is $\frac{m_2 g}{2(m_1 + m_2)} t^2$.
 
   \noindent In more detail:
   \begin{center}\includegraphics[width=\textwidth]{ps02_Solution_Problem_1}\end{center}
-\section*{Problem 2: K\&K 2.4}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 2.4}
+\subsection{Problem}
   Two particles of mass $m_1$ and $m_2$ undergo uniform circular motion about each other at a separation $R$ under the influence of an attractive force of magnitude $F$.  The angular velocity is $\omega$ radians per second.
   \begin{enumerate}[a)]
     \item Show that $R = \frac{F}{\omega^2} \cdot \left(\frac{1}{m_1} + \frac{1}{m_2}\right)$.
     \item Explain why you can think of this problem as equivalent to a single body of mass $\mu$ where $\frac{1}{\mu} = \left(\frac{1}{m_1} + \frac{1}{m_2}\right)$ undergoing circular motion of radius $R$ due to the influence of a central attractive force of magnitude $F$.
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[a)]
     \item Let $r_1$ and $r_2$ denote the radii of the circles of $m_1$ and $m_2$, respectively.  Then $R = r_1 + r_2$.  Since the movement is uniform and circular, the force must be $\frac{m_1 v_1^2}{r_1} = \frac{m_2 v_2^2}{r_2}$.  The acceleration of $m_1$ is then $\frac{v_1^2}{r_1}$, and the acceleration of $m_2$ is $\frac{v_2^2}{r_2}$.  Since the angular velocity is $\omega$, and the circumference is $2\pi r_1$ and $2\pi r_2$, respectively, $v_1 = \frac{2\pi r_1}{\frac{2\pi}{\omega}} = r_1 \omega$ and $v_2 = r_2 \omega$.  Then $F = m_1 r_1 \omega^2 =  m_2 r_2 \omega^2$.  Since $R = r_1 + r_2$, $F = m_1 r_1 \omega^2 = m_2 (R - r_1) \omega^2$.  So $F = m_1 r_1 \omega^2 = m_2 R \omega^2 - m_2 r_1 \omega^2$.  Dropping the $F$, $m_1 r_1 = m_2 R - m_2 r_1$, so $(m_1 + m_2)r_1 = m_2 R$.  Then $r_1 = \frac{R m_2}{m_1 + m_2}$.  Thus, $F =  \frac{R m_1 m_2\omega^2}{m_1 + m_2}$, so $R = \frac{F(m_1+m_2)}{\omega^2 m_1 m_2} = \frac{F}{\omega^2}\left(\frac{1}{m_1}+\frac{1}{m_2}\right)$.
     \item Let $\vec r_{AB} = \vec r_B - \vec r_A$ as shown below.
@@ -54,8 +54,8 @@
 
   \noindent With diagrams:
   \begin{center}\includegraphics[width=\textwidth]{ps02_Solution_Problem_2}\end{center}
-\section*{Problem 3: K\&K 2.7}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 2.7}
+\subsection{Problem}
   Consider two textbooks that are resting one on top of the other. The lower book has $m_2 = 0.8$ kg and is resting on a nearly frictionless surface. The upper book has mass $m_1 = 2.0$ kg. Suppose the coefficient of static friction is given by $\mu_s = 0.1$.
   \begin{center}\includegraphics[width=0.35\textwidth]{ps02_2}\end{center}
   \begin{enumerate}[a)]
@@ -63,7 +63,7 @@
     \item What is the maximum force which the lower book can be pushed horizontally so that the two books move together without slipping? Identify all action-reaction pairs of forces in this problem.
     \item Explain why one of your forces in parts a) and b) is larger than the other.
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[a)]
     \item The top block exerts friction on the bottom block, and vice versa.  Gravity exerts a force on each block, and the surface below exerts a normal force.  The blocks can be treated as a single block with mass $m_1 + m_2$ to which $F_{\text{applied}}$ is applied.  The acceleration is $\frac{F_{\text{applied}}}{m_1 + m_2}$.  The maximal force due to friction is $\mu_s F_n = m_1 g \mu_s$.  The maximal acceleration of the top block is thus $\frac{\mu_s m_1 g}{m_1} = \mu_s g = 1$ m / s$^2$.  Thus, the maximal applied force is $(1\text{ m / s}^2)(m_1 + m_2) = 3$ N.
       \begin{center}
@@ -143,8 +143,8 @@
   \noindent In more detail:
   \begin{center}\includegraphics[width=\textwidth]{ps02_Solution_Problem_3_0}\end{center}
   \begin{center}\includegraphics[width=\textwidth]{ps02_Solution_Problem_3_1}\end{center}
-\section*{Problem 4: K\&K 2.9}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 2.9}
+\subsection{Problem}
   A body of mass $m$ is moving in a horizontal circle of radius $r$ with a constant speed $v_0$ on the inside wall of a cone. Assume the wall of the cone is frictionless. The wall of the cone makes an angle $\theta$ with the vertical.
   \begin{center}\includegraphics[width=0.2\textwidth]{ps02_3}\end{center}
   \begin{enumerate}[a)]
@@ -153,7 +153,7 @@
     \item How long will the mass take to go around the circle?
     \item Now assume there is a coefficient of static friction $\mu_s$. Find the maximum speed the mass can move on the inside of a cone and still move in a circular orbit of radius $r$.
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[a)]
     \item $\left.\right.$\par\noindent
       \begin{center}
@@ -182,8 +182,8 @@
   \end{enumerate}
 
   \noindent
-\section*{Problem 5: K\&K 2.10}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 2.10}
+\subsection{Problem}
   The earth is spinning about its axis with a period of 23 hours 56 min and 4 sec. The equatorial radius of the earth is $6.38\cdot 10^{6}$ m. The latitude of Cambridge, Mass is 42$^{\circ}$ 22'.
   \begin{enumerate}[a)]
     \item Find the velocity of a person at MIT as they undergo circular motion about the earth? axis of rotation.
@@ -192,18 +192,18 @@
     \item Find the radius of the orbit of a synchronous satellite which circles the earth. (A synchronous satellite goes around the earth once every rotation of the earth, so that its position appears stationary with respect to a ground station).  \par\noindent
       Note: You may need to use the fact that the force of gravity between two objects of masses $m_1$ and $m_2$, separated by a distance $d$, is $F_g = \frac{G m_1 m_2}{d^2}$, where $G$ is the universal constant of gravitation.
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[a)]
     \item The radius of the circle of rotation is $r_E \cos(42^{\circ} 22') \approx 4710$ km.  The circumference is then about 29600 km.  The velocity is thus $\frac{29600\text{ km}}{23\text{ h }56\text{ m }4\text{ s}} \approx 343$ m/s.
     \item The centripetal acceleration is $\frac{v^2}{r} \approx 0.0251$ m / s$^2$.
     \item The angular velocity is $\frac{2\pi}{t}$, so the angular deceleration is $\frac{\frac{365\cdot 2\pi}{1\text{ year}} - \frac{365\cdot 2\pi}{1\text{ year}+1.01\text{ s}}}{77\text{ years}} \approx 10^{-21}$ s$^{-2}$.
     \item Since $v = \frac{2\pi r}{t}$, $a = G\frac{m_e}{r^2} = \frac{4\pi^2 r}{t^2}$, so $r = \sqrt[3]{\frac{G t^2}{4\pi^2}} \approx 42000$ km.
   \end{enumerate}
-\section*{Problem 6: K\&K 2.16}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 2.16}
+\subsection{Problem}
   A 45$^{\circ}$ wedge is pushed along a table with constant acceleration $A$. A block of mass $m$ slides without friction down the wedge. Find its acceleration. (Gravity is directed down.)
   \begin{center}\includegraphics[width=0.35\textwidth]{ps02_4}\end{center}
-\subsection*{Solution}
+\subsection{Solution}
   We begin with a coordinate transformation, substituting the acceleration of the wedge, $\vec A$, with a force in the opposite direction, $\vec F_A = -m \vec A$.
   \begin{center}\includegraphics[width=.5\textwidth]{2009-09-25_Diagram_5}\end{center}
   Decomposing the vectors, we get the following.
@@ -212,15 +212,15 @@
   Since $\sin(45^{\circ}) = \cos(45^{\circ}) = \frac{1}{\sqrt{2}}$, the magnitude of the net force is $\frac{1}{\sqrt{2}}(F_g - F_A)$ down the wedge.  Then the acceleration is $\frac{1}{\sqrt{2}}(g - A)$ down the wedge.  Transforming back to the original coordinate system, the net acceleration is $A \hat i + \frac{1}{\sqrt{2}}(g - A)\left(\frac{1}{\sqrt{2}}\hat i - \frac{1}{\sqrt{2}} \hat j\right) = \frac{1}{2}(g + A) \hat i - \frac{1}{2}(g - A)\hat j$.
 
   %The normal force of the wedge on the block, $F_n$, opposes the
-\section*{Problem 7: K\&K 2.22}
-\subsection*{Problem}
+\section{Problem \thesection: K\&K 2.22}
+\subsection{Problem}
   Suppose a rope of mass $m$ hangs between two trees. The ends of the rope are at the same height and they make an angle $\theta$ with the trees.
   \begin{center}\includegraphics[width=0.35\textwidth]{ps02_5}\end{center}
   \begin{enumerate}[a)]
     \item What is the tension at the ends of the rope where it is connected to the trees?
     \item What is the tension in the rope at a point midway between the trees?
   \end{enumerate}
-\subsection*{Solution}
+\subsection{Solution}
   \begin{enumerate}[a)]
     \item The magnitude of tension at the end of the rope, $T$, is such that $2T\cos\theta = mg$, so $T = \frac{mg}{2\cos\theta}$.
     \item Since there are no external horizontal forces on the rope, and no portion of the rope is accelerating, the horizontal component of tension must be constant throughout the rope.  Then $T = \frac{mg}{2}\tan\theta$. %The rope is divided into segments, as follows: \begin{center}\includegraphics[width=.5\textwidth]{2009-09-25_Diagram_11_old}\end{center}  %Then \begin{align*}

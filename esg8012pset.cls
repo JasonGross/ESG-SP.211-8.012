@@ -31,15 +31,29 @@
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage{etoolbox,etextools}
 \newboolean{esg8012pset@solutions}\newboolean{esg8012pset@problems}
+\newboolean{esg8012pset@pdfproblems}\newboolean{esg8012pset@pdfsolutions}
 \DeclareOption{problems}{\setboolean{esg8012pset@problems}{true}\setboolean{esg8012pset@solutions}{false}}
 \DeclareOption{solutions}{\setboolean{esg8012pset@problems}{false}\setboolean{esg8012pset@solutions}{true}}
+\DeclareOption{makeproblemspdf}{\setboolean{esg8012pset@pdfproblems}{true}}
+\DeclareOption{makesolutionspdf}{\setboolean{esg8012pset@pdfsolutions}{true}}
+\DeclareOption{makeallpdfs}{\setboolean{esg8012pset@pdfproblems}{true}\setboolean{esg8012pset@pdfsolutions}{true}}
 \ProcessOptions\relax
 \ifthenelse{\boolean{esg8012pset@problems} \OR \boolean{esg8012pset@solutions}}{
 }{
+  \expandnext{\renewcommand{\end}[1]}{\end{#1}\ifcsname end#1@hook\endcsname\csname end#1@hook\endcsname\else\fi}
+
+  \newcommand{\AfterEnvironment}[2]{%
+    \ifcsname end#1@hook\endcsname
+    \else
+      \csdef{end#1@hook}{}%
+    \fi
+    \csappto{end#1@hook}{#2}%
+  }
+
   \newwrite\esgpset@problemsout
   \newwrite\esgpset@solutionsout
   \newwrite\esgpset@tempout
-  \newcommand{\esgpset@compilefile}[1]{\write18{pdflatex "#1.tex"}}
+  \newcommand{\esgpset@compilefile}[1]{\write18{pdflatex "#1"}}
   \edef\esgpset@problemsfilename{\jobname\string_Problems.tex}
   \edef\esgpset@solutionsfilename{\jobname\string_Solutions.tex}
   \edef\esgpset@tempfilename{\jobname.tmp}
@@ -53,21 +67,13 @@
   \immediate\openout\esgpset@problemsout\esgpset@problemsfilename
   \immediate\openout\esgpset@solutionsout\esgpset@solutionsfilename
 
-  \def\esgpset@end@hook{
-    \begingroup
-      \writetoboth{\string\end{document}}
-    \endgroup
+  \AtEndDocument{
+    \writetoboth{\string\end{document}}
     \immediate\closeout\esgpset@problemsout
     \immediate\closeout\esgpset@solutionsout
-    %\write18{pdflatex "\esgpset@problemsfilename"}
-    %\write18{pdflatex "\esgpset@solutionsfilename"}
+    \ifthenelse{\boolean{esg8012pset@pdfsolutions}}{\esgpset@compilefile{\esgpset@solutionsfilename}}{}
+    \ifthenelse{\boolean{esg8012pset@pdfproblems}}{\esgpset@compilefile{\esgpset@problemsfilename}}{}
   }
-  \expandafter\expandafter\expandafter\def\expandafter\expandafter\expandafter\enddocument
-    \expandafter\expandafter\expandafter{\expandafter\esgpset@end@hook\enddocument}
-
-  \global\let\esgpset@begin@hook\relax
-  \expandafter\def\expandafter\begin
-    \expandafter#\expandafter1\expandafter{\expandafter\esgpset@begin@hook\begin{#1}}% This is a terrible, terrible hack.
 
   \begingroup
     \writetosolutions{%
@@ -85,35 +91,33 @@
       \let\do\@makeother\dospecials\catcode`\^^M\active
       \def\verbatim@processline{\writetoboth{\the\verbatim@line}\immediate\write\esgpset@tempout{\the\verbatim@line}}
       \verbatim@start
-    }{\@esphack
-      \immediate\closeout\esgpset@tempout\endgroup
-      \gdef\esgpset@begin@hook{\input{\esgpset@tempfilename}\global\let\esgpset@begin@hook\relax}%
+    }{\@esphack\immediate\closeout\esgpset@tempout\endgroup}
+    \AfterEnvironment{preamble}{\input{\esgpset@tempfilename}}
+
+    \AtBeginDocument{
+
+      \begingroup
+        \writetoboth{%
+          \string\classname{\expandafter\unexpanded\expandafter{\@classname}}
+        }
+        \writetoboth{%
+          \string\semester{\expandafter\unexpanded\expandafter{\@semester}}
+        }
+        \writetoboth{%
+          \string\problemsetnumber{\expandafter\unexpanded\expandafter{\@problemsetnumber}}
+        }
+        \writetoboth{%
+          \string\date{\expandafter\unexpanded\expandafter{\@date}}
+        }
+        \writetoboth{%
+          \string\duedate{\expandafter\unexpanded\expandafter{\@duedate}}
+        }
+        \writetoboth{%
+          \string\readingassignment{\expandafter\unexpanded\expandafter{\@readingassignment}}
+        }
+        \writetoboth{\string\begin{document}}
+      \endgroup
     }
-
-  \AtBeginDocument{
-
-    \begingroup
-      \writetoboth{%
-        \string\classname{\expandafter\unexpanded\expandafter{\@classname}}
-      }
-      \writetoboth{%
-        \string\semester{\expandafter\unexpanded\expandafter{\@semester}}
-      }
-      \writetoboth{%
-        \string\problemsetnumber{\expandafter\unexpanded\expandafter{\@problemsetnumber}}
-      }
-      \writetoboth{%
-        \string\date{\expandafter\unexpanded\expandafter{\@date}}
-      }
-      \writetoboth{%
-        \string\duedate{\expandafter\unexpanded\expandafter{\@duedate}}
-      }
-      \writetoboth{%
-        \string\readingassignment{\expandafter\unexpanded\expandafter{\@readingassignment}}
-      }
-      \writetoboth{\string\begin{document}}
-    \endgroup
-  }
 }
 
 \pagestyle{fancy}

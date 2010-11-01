@@ -294,8 +294,8 @@
   $$\text{H} + \text{H} \to \text{H}_2 + 5\text{ eV}$$
   Two hydrogen atoms collide and produce a diatomic hydrogen molecule. However, when hydrogen atoms collide in free space they simply bounce apart. The reason is that it is impossible to satisfy the laws of conservation of energy and momentum in a simple two body collision which releases energy.
   \begin{enumerate}[(a)]
-  \item Can you prove this? Try to analyze this collision in a reference frame moving with the velocity of the center of mass of the system.
-    \item Can this two body reaction take place if the temperature is dramatically lowered to near zero degrees Kelvin? Try to give an physical explanation for your answer.
+    \item Can you prove this? Try to analyze this collision in a reference frame moving with the velocity of the center of mass of the system.
+    \item (Optional) Can this two body reaction take place if the temperature is dramatically lowered to near zero degrees Kelvin? Try to give an physical explanation for your answer.
   \end{enumerate}
 \subsection{Solution}
   \begin{enumerate}[(a)]
@@ -340,7 +340,7 @@
 \begin{enumerate}[a)]
   \item The minimum is at $U'(r) = 0$, so $\epsilon\left[-12(r / r_0)^{-13} + 12(r / r_0)^{-7}\right] = 0$, so $(r / r_0)^{13} = (r / r_0)^{7}$, or $(r / r_0)^6 = 1$.  Then $r = r_0$.  Then $U(r_0) = \epsilon(1^12 - 2\cdot 1^6) = -\epsilon$.
   \item Approximate the potential function as $U(r) = U(r_0) + \left.\frac{\d U}{\d r}\right|_{r=r_0}(r-r_0) + \left.\frac{\d^2 U}{\d r^2}\right|_{r=r_0}(r-r_0)^2$.  Since $\left.\frac{\d U}{\d r}\right|_{r=r_0}(r-r_0) = 0$, $U(r) = -\epsilon + \left.\frac{\d^2 U}{\d r^2}\right|_{r=r_0}(r-r_0)^2$.  $\left.\frac{\d^2 U}{\d r^2}\right|_{r=r_0} = \epsilon\left[12\cdot 13 (r_0 / r_0)^{-14} -12\cdot 7(r_0/r_0)^{-8}\right] = \epsilon(12\cdot 6) = 72\epsilon$.  Then $U(r) = -\epsilon + 72\epsilon(r - r_0)^2$. \par
-  Then $E = \frac{1}{2}\mu\left(\frac{\d r}{\d t}\right)^2 + U(r_0) + \frac{1}{2}k(r-r_0)^2$.  Then $\frac{\d E}{\d t} = 0 = \mu\left(\frac{\d r}{\d t}\right)\left(\frac{\d^2 r}{\d t^2}\right) + k(r - r_0)\frac{\d r}{\d t}$.  Then $\frac{\d r}{\d t}\left(\mu \left(\frac{\d^2 r}{\d t^2}\right) + k(r - r_0)\right) = 0$, so $\frac{\d^2 r}{\d t^2} = -\frac{k}{\mu}(r - r_0)$, the frequency of oscillation is $\sqrt{\frac{\frac{k}{\mu}}} = \sqrt{\frac{72\epsilon}{m / 2}} = \sqrt{\frac{144\epsilon}{m}}$.
+  Then $E = \frac{1}{2}\mu\left(\frac{\d r}{\d t}\right)^2 + U(r_0) + \frac{1}{2}k(r-r_0)^2$.  Then $\frac{\d E}{\d t} = 0 = \mu\left(\frac{\d r}{\d t}\right)\left(\frac{\d^2 r}{\d t^2}\right) + k(r - r_0)\frac{\d r}{\d t}$.  Then $\frac{\d r}{\d t}\left(\mu \left(\frac{\d^2 r}{\d t^2}\right) + k(r - r_0)\right) = 0$, so $\frac{\d^2 r}{\d t^2} = -\frac{k}{\mu}(r - r_0)$, the frequency of oscillation is $\sqrt{\frac{k}{\mu}} = \sqrt{\frac{72\epsilon}{m / 2}} = \sqrt{\frac{144\epsilon}{m}}$.
   %
   %$KE_{r_{\text{min}}} + PE_{r_{\text{min}}} = KE_{r_0} + PE_{r_0} = PE_{r_{\text{max}}} + KE_{r_{\text{max}}}$.  $KE_{r_{\text{max}}} = KE_{r_{\text{min}}} = 0$.  Then $PE_{r_{\text{min}}}  = KE_{r_0} - \epsilon = PE_{r_{\text{max}}}$.  Then $\epsilon\left[(r_0 / r_{\text{min}})^{12} - 2(r_0 / r_{\text{min}})^6\right] = 2\cdot \frac{1}{2} m v_{r_0}^2 - \epsilon = \epsilon\left[(r_0 / r_{\text{max}})^{12} - 2(r_0 / r_{\text{max}})^6\right]$.  Then $(r_0 / r_{\text{min}})^{12} - 2(r_0 / r_{\text{min}})^6 = \frac{m}{\epsilon}v_{r_0}^2 - 1 = (r_0 / r_{\text{max}})^{12} - 2(r_0 / r_{\text{max}})^6$.  FIX
 \end{enumerate}
