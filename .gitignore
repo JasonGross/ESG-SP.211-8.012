@@ -4,6 +4,8 @@
 # exclude patterns (uncomment them if you want to use them):
 # *.[oa]
 *~
+~*
+.~*
 *.tmp
 *.dvi
 *.log
@@ -11,3 +13,5 @@
 *.blg
 *.swp
 *.backup
+thumbs.db
+Thumbs.db

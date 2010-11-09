@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{sectsty}
+\usepackage{multicol}
+\sectionfont{\large}
+\let\oldvec=\vec
+\let\oldhat=\hat
+\renewcommand{\vec}[1]{\oldvec{\boldsymbol{#1}}}
+\renewcommand{\hat}[1]{\oldhat{\boldsymbol{#1}}}
+\newcommand{\uvec}[1]{\hat{#1}}
+\pagestyle{empty}
+\begin{document}
+{\large
+\begin{center}
+\textbf{\textsc{Massachusetts Institute of Technology}} \\
+ \textbf{Department of Physics} \\
+ \textbf{Experimental Study Group}
+\end{center}
+\noindent \textbf{Physics 8.012 \hfill Fall Term 2010}} \par
+
+
+\begin{multicols}{2}
+  \paragraph{Momentum}
+    $$\vec p = m \vec v,\quad \vec F_\text{ave} \Delta t = \Delta \vec p,\quad \vec F_\text{ext}^\text{total} = \frac{d\vec p^\text{total}}{dt}$$
+    
+  \paragraph{Impulse}
+    $$\vec I \equiv \int_{t=0}^{t=t_f} \vec F(t)\,dt = \Delta \vec p$$
+    
+  \paragraph{Work-Change in Mechanical Energy}
+    \begin{align*}
+      W_\text{nc} & = \Delta K^\text{total} + \Delta U^\text{total} = \Delta E_\text{mech} \\
+      E_\text{mech} & = K^\text{total} + U^\text{total} = K^\text{orbit} + K^\text{spin} + U^\text{total}
+    \end{align*}
+  
+  \paragraph{Kinematics Circular Motion}
+    \begin{align*}
+      \vec v & = \frac{dr}{dt}\uvec r + r\frac{d\theta}{dt} \uvec\theta \\
+      \vec a & = \left(\frac{d^2r}{dt^2} - r\left(\frac{d\theta}{dt}\right)^2\right)\uvec r + \left(2\frac{dr}{dt}\frac{d\theta}{dt} + r \frac{d^2\theta}{dt^2}\right)\uvec \theta
+    \end{align*}
+  
+  \paragraph{Kinematics}
+    \begin{align*}
+      v_x(t) - v_{x,0} & = \int_{t'=0}^{t'=t} a_x(t')\,dt' \\
+      x(t) - x_0 & = \int_{t'=0}^{t'=t} v_x(t')\,dt'
+    \end{align*}
+    
+  \paragraph{Constant Acceleration}
+    \begin{align*}
+      x_1(t) & = (x_0)_1 + (v_{x,0})_1 t + \frac12 (a_x)_1 t^2 \\
+      v_{x,1}(t) & = (v_{x,0})_1 + (a_x)_1 t
+    \end{align*}
+    
+  \paragraph{Universal Law of Gravity}
+    $$\vec F_{1,2} = -G\frac{m_1m_2}{r_{1,2}^2}\hat r_{1,2}$$
+  
+  \paragraph{Surface of earth}
+    $$\vec F_\text{grav} = m_\text{grav} \vec g$$
+  
+  \paragraph{Coulomb's Law}
+    $$\vec F_{1,2} = k_e \frac{q_1q_2}{r_{1,2}^2} \hat r_{1,2}$$
+    
+  \paragraph{Contact force}
+    $$\vec F_\text{contact} = \vec N + \vec f$$
+    
+  \paragraph{Static Friction}
+    $$0 \le f_s \le f_{s,\text{max}} = \mu_s N$$
+    \nopagebreak
+    direction depends on applied forces
+  \paragraph{Kinetic Friction}
+    \begin{center}$f_k = \mu_k N$ opposes motion\end{center}
+    
+  \paragraph{Hooke's Law}
+    \begin{center} $F = k|\Delta x|$, restoring\end{center}
+    
+  \paragraph{Center of Mass}
+    $$\vec R_\text{cm} = \left.\sum_{i = 1}^{i=N} m_i \vec r_i \right/ \sum_{i=1}^{i=N} m_i \longrightarrow \left. \int_\text{body} dm\vec r \right/ \int_\text{body} dm$$
+   
+  \paragraph{Velocity of Center of Mass}
+    $$\vec V_\text{cm} = \left.\sum_{i = 1}^{i=N} m_i \vec v_i \right/ \sum_{i=1}^{i=N} m_i \longrightarrow \left. \int_\text{body} dm\vec v \right/ \int_\text{body} dm$$
+    
+  \paragraph{Kinetic Energy}
+    $$K = \frac12 m v^2; \quad \Delta K = \frac12 m v_f^2 - \frac12 m v_0^2$$
+    
+  \paragraph{Work}
+    $$W = \int_{r_0}^{r_f} \vec F \cdot d\vec r$$
+  
+  \paragraph{Work--Kinetic Energy}
+    $$W^\text{total} = \Delta K$$
+    
+  \paragraph{Power}
+    $$P = \vec F \cdot \vec v = dK / dt$$
+    
+  \paragraph{Potential Energy}
+    $$\Delta U = -W_\text{conservative} = -\int_A^B \vec F_c \cdot d\vec r$$
+    
+  \paragraph{Potential Energy Functions with Zero Points}
+    \subparagraph{Constant Gravity}
+      $$U(y) = mgy; \qquad U(y_0 = 0) \equiv 0$$
+    \subparagraph{Inverse Square Gravity}
+      $$U_\text{gravity}(r) = -\frac{Gm_1 m_2}{r}\qquad U_\text{gravity}(r_0 = \infty) \equiv 0$$
+    \subparagraph{Hooke's Law}
+      $$U_\text{spring}(x) = \frac12 k x^2\qquad U_\text{spring}(x = 0) \equiv 0$$
+\end{multicols}
+\end{document}
