@@ -60,12 +60,10 @@
 
   \newwrite\esgexam@problemsout
   \newwrite\esgexam@solutionsout
-  \newwrite\esgexam@coversheetout
   \newwrite\esgexam@tempout
   \newcommand{\esgexam@compilefile}[1]{\write18{pdflatex "#1.tex"}}
   \edef\esgexam@problemsfilename{\jobname\string_Problems.tex}
   \edef\esgexam@solutionsfilename{\jobname\string_Solutions.tex}
-  \edef\esgexam@coversheetfilename{\jobname.cst}
   \edef\esgexam@tempfilename{\jobname.tmp}
   \newcommand{\writetoboth}[1]{\writetoproblems{#1}%
     \writetosolutions{#1}}
@@ -73,7 +71,8 @@
   \newcommand{\writetoproblems}[1]{\immediate\write\esgexam@problemsout{#1}}
   \newcommand{\writetosolutions}[1]{\immediate\write\esgexam@solutionsout{#1}}
   \newcommand{\writetothis}[1]{{\edef\temp{#1}\expandafter}\expandafter\scantokens\expandafter{\temp}}
-  \newcommand{\writetocoversheet}[1]{\immediate\write\esgexam@coversheetout{#1}}
+  \newcommand{\writetocoversheet}[1]{\immediate\write\@auxout{\unexpanded{\AfterEndPreamble{#1}}}
+    \immediate\write\@auxout{\unexpanded{\AfterEndPreamble{\writetoproblems{\unexpanded{#1}}}}}}
 
   \immediate\openout\esgexam@problemsout\esgexam@problemsfilename\relax
   \immediate\openout\esgexam@solutionsout\esgexam@solutionsfilename\relax
@@ -167,70 +166,50 @@
   \global\let\@semester\relax
   \global\let\@classname\relax
 }
+\newcounter{esg8012exam@totalproblemcount}
 \AfterEndPreamble{%
   \ifthenelse{\boolean{esg8012exam@coversheet}}{%
     \ifthenelse{\boolean{esg8012exam@problems} \OR \boolean{esg8012exam@solutions}}{%
     }{%
-      \IfFileExists{\esgexam@coversheetfilename}{
-        \newread\esgexam@coversheet@read
-        \immediate\openin\esgexam@coversheet@read=\esgexam@coversheetfilename\relax
-        \loop
-          \read\esgexam@coversheet@read to \esgexam@line
-          \unless\ifeof\esgexam@coversheet@read
-            \writetoproblems{\expandafter\unexpanded\expandafter{\esgexam@line}}%
-        \repeat
-        \immediate\closein\esgexam@coversheet@read
-      }{}
-      \writetoproblems{\noexpand\cleardoublepage}
-      \InputIfFileExists{\esgexam@coversheetfilename}{}{}
-      \cleardoublepage
-      \RerunFileCheck{\esgexam@coversheetfilename}{%
-        \writetocoversheet{\unexpanded{\\ \\}}
+      \AtEndDocument{
+        \writetocoversheet{\\ \\}
         \ExpandNext{\esgexam@makecoversheetproblem[Total]}{\arabic{esg8012exam@totalpointcount}}
-        \writetocoversheet{\unexpanded{\end{tabular}\relax}}
-        \immediate\closeout\esgexam@coversheetout
-      }{%
-        Rerun LaTeX to get coversheet right%
-      }%
-      \immediate\openout\esgexam@coversheetout\esgexam@coversheetfilename\relax
+        \writetocoversheet{\end{tabular}}
+        \writetocoversheet{\cleardoublepage\relax}
+      }
+      \writetocoversheet{\bigskip}
+      \writetocoversheet{\noindent \textbf{Name}\qquad\underline{\hspace{0.5\textwidth}}}
+      \writetocoversheet{\par}
+      \writetocoversheet{\bigskip}
+      \writetocoversheet{\noindent}
+      \AtEndDocument{
+        \ExpandNext{\immediate\write\@auxout}
+          {\ExpandNext{\relax\unexpanded}
+            {\ExpandNext{\relax\setcounter{esg8012exam@totalproblemcount}}{\thesection}}}
+      }
+      {\edef\@temp{\noexpand\writetocoversheet{%
+        \noexpand\textbf{The following exam consists of \ifcase\value{esg8012exam@totalproblemcount} zero problems\or one problem\or two problems\or three problems\or four problems\or five problems\or six problems\or seven problems\or eight problems\or nine problems\or ten problems\or eleven problems\or twelve problems\or thirteen problems\or fourteen problems\or fifteen problems\fi.  Answers without work shown will not be given any credit. Good luck!}}
+        \noexpand\writetocoversheet{\noexpand\par}
+        \noexpand\writetocoversheet{\noexpand\bigskip}
+        \noexpand\writetocoversheet{\noexpand\bigskip}
+        \noexpand\writetocoversheet{\noexpand\bigskip}
+      }\expandafter}%
+      \@temp
+      \writetocoversheet{\noindent \begin{tabular}{l@{\hspace{2em}}l@{\hspace{3em}}l}}
     }{}%
   }{}%
 }
-\newcommand*{\examnumber}[1]{\gdef\@examnumber{#1}}
-\newcommand*{\semester}[1]{\gdef\@semester{#1}}
-\newcommand*{\classname}[1]{\gdef\@classname{#1}}
-\begingroup
-  \AfterEndPreamble{
-    \writetocoversheet{\unexpanded{\bigskip}}
-    \writetocoversheet{\unexpanded{\noindent \textbf{Name}\qquad\underline{\hspace{0.5\textwidth}}}}
-    \writetocoversheet{\unexpanded{\par}}
-    \writetocoversheet{\unexpanded{\bigskip}}
-    \writetocoversheet{\unexpanded{\noindent}}
-    \AtEndDocument{
-      {\edef\@temp{\noexpand\writetocoversheet{\noexpand\unexpanded{%
-        \noexpand\textbf{The following exam consists of \ifcase\thesection zero problems\or one problem\or two problems\or three problems\or four problems\or five problems\or six problems\or seven problems\or eight problems\or nine problems\or ten problems\or eleven problems\or twelve problems\or thirteen problems\or fourteen problems\or fifteen problems\fi.  Answers without work shown will not be given any credit. Good luck!}}}
-        \noexpand\writetocoversheet{\noexpand\unexpanded{\noexpand\par}}
-        \noexpand\writetocoversheet{\noexpand\unexpanded{\noexpand\bigskip}}
-        \noexpand\writetocoversheet{\noexpand\unexpanded{\noexpand\bigskip}}
-        \noexpand\writetocoversheet{\noexpand\unexpanded{\noexpand\bigskip}}
-      }\expandafter}%
-      \@temp
-      \writetocoversheet{\unexpanded{\noindent \begin{tabular}{l@{\hspace{2em}}l@{\hspace{3em}}l}}}
-    }
-  }
-\endgroup
 \newcounter{esg8012exam@totalpointcount}
 \setcounter{esg8012exam@totalpointcount}{0}
 \newcommand{\esgexam@makecoversheetproblem}[2][Problem \thesection]{%
   \addtocounter{esg8012exam@totalpointcount}{\number #2\relax}%
   {\edef\@temp{%
-    \noexpand\AtEndDocument{
-      \noexpand\writetocoversheet{\noexpand\unexpanded{
-        \noexpand\textbf{#1} & \noexpand\textbf{(#2\noexpand\space Points)} & \noexpand\underline{\noexpand\hspace{10em}}\noexpand\\\noexpand\\\noexpand\\%
-      }}%
-    }%
+    \noexpand\writetocoversheet{\noexpand\textbf{#1} & \noexpand\textbf{(#2\noexpand\space Points)} & \noexpand\underline{\noexpand\hspace{10em}} \noexpand\\ \noexpand\\ \noexpand\\}%
   }\expandafter}\@temp
 }
+\newcommand*{\examnumber}[1]{\gdef\@examnumber{#1}}
+\newcommand*{\semester}[1]{\gdef\@semester{#1}}
+\newcommand*{\classname}[1]{\gdef\@classname{#1}}
 \newenvironment{problem}[2][\relax]{%
   \ifthenelse{\equal{#1}{\relax}}{%
     \ifstrnum{#2}{
