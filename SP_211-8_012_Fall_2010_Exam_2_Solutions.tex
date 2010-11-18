@@ -87,7 +87,7 @@
   After the collision the block reverses direction but maintains the same speed in the center of mass frame so
   \begin{equation} {v}'_{b,2} ={v}'_{b,0} =\frac{m_c v_{c,0} }{m_b +m_c }. \label{eq:1:v_b2'} \end{equation}
   In the lab frame the speed of the block is then
-  \begin{equation} v_{b,2} ={v}'_{b,2} +v_{cm} =\frac{m_c v_{c,0} }{m_b +m_c }+\frac{m_c v_{c,0} }{m_b +m_c }=\frac{2m_c v_{c,0} }{m_b +m_c }.\label{eq:1:v_b2} \end{equation}
+  \begin{equation} v_{b,2} ={v}'_{b,2} +v_{cm} =\frac{m_c v_{c,0} }{m_b +m_c }+\frac{m_c v_{c,0} }{m_b +m_c }=\frac{2m_c v_{c,0} }{m_b +m_c }.\label{eq:1:v_b2_final} \end{equation}
   This is in agreement with \autoref{eq:1:v_b2}.
 \clearpage
 \section{Problem \thesection\space(35\space points)}
@@ -160,7 +160,7 @@
       The smaller square represents the small amount of fuel of mass $\Delta m_f$ that is ejected during the interval $[t,t+\Delta t]$. In the above figure $m_r (t)$ is the combined mass of the rocket sled, the dry mass of the rocket sled plus the mass of fuel inside the rocket sled at time $t$ that does not leave the rocket sled during the interval. The $x$-component of the velocity of the rocket sled is denoted by $v_r(t)$.  In analyzing our momentum diagrams we shall drop the explicit reference to time dependence for the mass of the rocket and the $x$-component of the velocity of the rocket sled, denoting them respectively by $m_r$ and $v_r $. Returning to our momentum diagram we see that at time $t$, the $x$-component of the momentum of the system $p_x^\text{sys}(t)$ is given by
       \begin{equation} p_x^\text{sys}(t)=(m_r +\Delta m_f) v_r  \label{eq:3:p_x^sys(t)} \end{equation}
       By the end of the interval the rocket has recoiled forward with $x$-component of the velocity $v_r +\Delta v_r $. The fuel is ejected backwards relative to the rocket sled with speed $u$, hence with a speed $v_r +\Delta v_r -u$ relative to the fixed reference frame depicted in the figures. After the interval has ended the momentum diagram of the system is shown below.
-      \begin{center}\includegraphics[width=0.6\textwidth]{exam2_s3_1}\end{center}
+      \begin{center}\includegraphics[width=0.6\textwidth]{exam2_s3_2}\end{center}
       At time $t+\Delta t$, the $x$-component of the momentum of the system $p_x^\text{sys} (t+\Delta t)$ is given by
       \begin{equation} p_x^\text{sys} (t+\Delta t) = m_r (v_r +\Delta v_r )+\Delta m_f (v_r +\Delta v_r -u) \label{eq:3:p_x^sys(t+delta_t)} \end{equation}
       and so the change in $x$-component of the momentum of the system during the interval $[t,t+\Delta t]$ is
@@ -183,13 +183,13 @@
       \begin{equation} 0=m_r \frac{dv_r }{dt}+\frac{dm_r }{dt}u. \label{eq:3:diff_eq_mr_v} \end{equation}
       We can solve this equation by the technique of separation of variables.  First rewrite the equation as
       \begin{equation} m_r \frac{dv_r }{dt}=-\frac{dm_r }{dt}u. \label{eq:3:separation_of_variables_v_mr_1} \end{equation}
-      Multiple each side by $dt$ and divide by through by $m_r $. Thus
+      Multiply each side by $dt$ and divide by through by $m_r $. Thus
       \begin{equation} dv_r =-\frac{dm_r }{m_r }u. \label{eq:3:separation_of_variables_v_mr_2} \end{equation}
     \item \emph{Integrate the above relation to find the speed of the rocket sled as a function of mass, $v(m)$, as the rocket sled speeds up.} \par
       We can integrate both sides of \autoref{eq:3:separation_of_variables_v_mr_2}
-      \begin{equation} \int_{v_r =0}^{v_{r,f} } {dv_r } =-u\int_{m_{r,0} }^{m_{r,0} } {\frac{dm_r }{m_r }} . \label{eq:3:integration_vr_mr} \end{equation}
+      \begin{equation} \int_{v_r =0}^{v_{r,f} } {dv_r } =-u\int_{m_{r,0} }^{m_{r,f}} {\frac{dm_r }{m_r }} . \label{eq:3:integration_vr_mr} \end{equation}
       Integration yields
-      \begin{equation} v_{r,f} =-u\ln \left( {\frac{m_{r,f} }{m_{r,0} }} \right)=u\ln \left( {\frac{m_{r,o} }{m_{r,f} }} \right) \label{eq:3:vrf}\end{equation}
+      \begin{equation} v_{r,f} =-u\ln \left( {\frac{m_{r,f} }{m_{r,0} }} \right)=u\ln \left( {\frac{m_{r,0} }{m_{r,f} }} \right) \label{eq:3:vrf}\end{equation}
     \item \emph{What is the final speed of the rocket sled after all the fuel has been burned? Express your answers in terms of the quantities $u$, and $m_{r,0}$ as needed.} \par
       Because $m_{r,f} =\frac12m_{r,0}$, the final speed of the rocket sled after the fuel has been burned is
       \begin{equation} v_{r,f} =u\ln 2 \label{eq:3:vf_u} \end{equation}
@@ -198,15 +198,15 @@
       We shall use the energy law that
       \begin{equation} W_\text{nc} =E_f -E_i . \label{eq:3:Wnc} \end{equation}
       The non-conservative work is due to friction
-      \begin{equation} W_\text{nc} =-\int_0^D {f_k } dx=-m_{r,0} g\int_0^D {\mu_k (x)} dx=-m_{r,0} g\int_0^D {bx} dx=-m_{r,0} gb(D^2/2) \label{eq:3:Wnc_friction} \end{equation}
+      \begin{equation} W_\text{nc} =-\int_0^D {f_k } dx=-m_{r,f} g\int_0^D {\mu_k (x)} dx=-\frac{m_{r,0}}{2} g\int_0^D {bx} dx=-\frac{m_{r,0}}{4} gb D^2 \label{eq:3:Wnc_friction} \end{equation}
       The final mechanical energy is zero,
       \begin{equation} E_f =0 \label{eq:3:Ef=0} \end{equation}
       and the initial mechanical energy is just the kinetic energy of the sled after the fuel as been burned,
-      \begin{equation} E_i =\frac{1}{2}m_{r,f} v_{r,f}^2=\frac{m_{r,0} u\ln 2}{4}. \label{eq:3:E_i} \end{equation}
+      \begin{equation} E_i =\frac{1}{2}m_{r,f} v_{r,f}^2=\frac{m_{r,0} (u\ln 2)^2}{4}. \label{eq:3:E_i} \end{equation}
       Substituting \autoref{eq:3:Wnc_friction}, \autoref{eq:3:Ef=0}, and \autoref{eq:3:E_i} into \autoref{eq:3:Wnc} yields
-      \begin{equation} -m_{r,0} gb(D^2/2)=-\frac{m_{r,0} u\ln 2}{4}. \label{eq:3:energy_constraint_substituted} \end{equation}
+      \begin{equation} -\frac{m_{r,0} gb D^2}{4}=-\frac{m_{r,0} (u\ln 2)^2}{4}. \label{eq:3:energy_constraint_substituted} \end{equation}
       We can solve \autoref{eq:3:energy_constraint_substituted} for the distance $D$ that the sled slid before it came to rest
-      \begin{equation} D=\sqrt {\frac{u\ln 2}{2gb}} . \label{eq:3:D} \end{equation}
+      \begin{equation} D=\frac{u\ln 2}{\sqrt {gb}} . \label{eq:3:D} \end{equation}
   \end{enumerate}
 \clearpage
 \end{document}

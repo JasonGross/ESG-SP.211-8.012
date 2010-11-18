@@ -91,33 +91,33 @@
       \let\do\@makeother\dospecials\catcode`\^^M\active
       \def\verbatim@processline{\writetoboth{\the\verbatim@line}\immediate\write\esgpset@tempout{\the\verbatim@line}}
       \verbatim@start
-    }{\@esphack\immediate\closeout\esgpset@tempout\endgroup}
-    \AfterEnvironment{preamble}{\input{\esgpset@tempfilename}}
+  }{\@esphack\immediate\closeout\esgpset@tempout\endgroup}
+  \AfterEnvironment{preamble}{\input{\esgpset@tempfilename}}
 
-    \AtBeginDocument{
+  \AtBeginDocument{
 
-      \begingroup
-        \writetoboth{%
-          \string\classname{\expandafter\unexpanded\expandafter{\@classname}}
-        }
-        \writetoboth{%
-          \string\semester{\expandafter\unexpanded\expandafter{\@semester}}
-        }
-        \writetoboth{%
-          \string\problemsetnumber{\expandafter\unexpanded\expandafter{\@problemsetnumber}}
-        }
-        \writetoboth{%
-          \string\date{\expandafter\unexpanded\expandafter{\@date}}
-        }
-        \writetoboth{%
-          \string\duedate{\expandafter\unexpanded\expandafter{\@duedate}}
-        }
-        \writetoboth{%
-          \string\readingassignment{\expandafter\unexpanded\expandafter{\@readingassignment}}
-        }
-        \writetoboth{\string\begin{document}}
-      \endgroup
-    }
+    \begingroup
+      \writetoboth{%
+        \string\classname{\expandafter\unexpanded\expandafter{\@classname}}
+      }
+      \writetoboth{%
+        \string\semester{\expandafter\unexpanded\expandafter{\@semester}}
+      }
+      \writetoboth{%
+        \string\problemsetnumber{\expandafter\unexpanded\expandafter{\@problemsetnumber}}
+      }
+      \writetoboth{%
+        \string\date{\expandafter\unexpanded\expandafter{\@date}}
+      }
+      \writetoboth{%
+        \string\duedate{\expandafter\unexpanded\expandafter{\@duedate}}
+      }
+      \writetoboth{%
+        \string\readingassignment{\expandafter\unexpanded\expandafter{\@readingassignment}}
+      }
+      \writetoboth{\string\begin{document}}
+    \endgroup
+  }
 }
 
 \pagestyle{fancy}
