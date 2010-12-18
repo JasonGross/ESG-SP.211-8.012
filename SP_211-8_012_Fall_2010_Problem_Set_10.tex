@@ -43,7 +43,17 @@
 \end{problem}
 \begin{solution}
 \begin{enumerate}[(a)]
-  \item By conservation of energy, $E = \frac{1}{2} m \dot r^2 - \int F\cdot d r + \frac{1}{2}I\omega^2$.  Since $L = I\omega$, and $I = m r^2 = \frac{50\text{ g}}{2}r^2$, $\omega = \frac{1000\text{ g $\cdot$ cm$^2$ / s}}{\frac{50\text{ g}}{2}r^3} = \frac{400\text{ cm$^2$ / s}}{r^2}$.  Then $E = \frac{1}{2}m\dot r^2 + r^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{r^2}$.  The effective potential energy is $r^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{r^2}$.
+  \item The total energy is given by 
+    \begin{align*}
+      E & = \frac{1}{2} m (\dot x^2 + \dot y^2) + U(r) \\
+        & = \frac12 m \dot r^2 + \frac12 m r^2 \dot\theta^2 + U(r)
+    \end{align*}
+    Since the central force is $\vec F = -4r^3\hat r\si{\dyne}$, taking the zero of potential energy to be at $r = 0$,
+    \begin{equation*}
+      U(r) - U(0) & = -\int_0^r\vec F \cdot d\vec r \\
+    \end{equation*}
+  
+  %\item By conservation of energy, $E = \frac{1}{2} m \dot r^2 - \int F\cdot d r + \frac{1}{2}I\omega^2$.  Since $L = I\omega$, and $I = m r^2 = \frac{50\text{ g}}{2}r^2$, $\omega = \frac{1000\text{ g $\cdot$ cm$^2$ / s}}{\frac{50\text{ g}}{2}r^3} = \frac{400\text{ cm$^2$ / s}}{r^2}$.  Then $E = \frac{1}{2}m\dot r^2 + r^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{r^2}$.  The effective potential energy is $r^4\text{ dynes $\cdot$ cm} + \frac{200000\text{ g $\cdot$ cm$^4$ / s$^2$}}{r^2}$.
   \item Since 1 dyne is 1 g cm$^2$ / s$^2$, the plot is \par
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.25cm,y=0.25cm]
 \draw[->,color=black] (-15,0) -- (15,0);
